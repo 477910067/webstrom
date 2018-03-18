@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>保留下数位数</title>
+</head>
+<body>
+<script>
+    var PI = 1213.141592653;  //  常量大写
+    var str = PI + "";   // 因为数字没法进行字符操作  先转换
+    var index = str.indexOf("."); // 我们要返回当前字符的点的位置  indexOf(".")
+    console.log(index);
+    console.log(str.substr(0,index+3));    // 从第0个开始取  取到小数点再加3位
+    console.log(str.substr(0,str.indexOf(".")+3));
+    console.log(parseInt(PI*100) /100);
+    //1213.141592653 * 100  =  121314.1592653   取整   121314  /100
+    console.log(PI.toFixed(2));  // 真正取整的方法
+</script>
+</body>
+</html>

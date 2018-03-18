@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .demo1 {
+            border: 2px solid #a1a1a1;
+            padding: 30px;
+            margin: 29px;
+            background: yellow;
+            width: 300px;
+
+            /*添加圆角边框*/
+            border-radius: 25px;
+
+            /*添加盒阴影:右影 下影 阴影虚度 阴影颜色*/
+            box-shadow: 10px 10px 5px #888;
+        }
+
+        .demo2 {
+            border: 15px solid transparent;
+            width: 290px;
+            padding: 10px 20px;
+        }
+
+        #round {
+            -webkit-border-image: url(border.png) 30 30 round; /* Safari 5 and older */
+            -o-border-image: url(border.png) 30 30 round; /* Opera */
+            border-image: url(border.png) 30 30 round;
+        }
+
+        #stretch {
+            -webkit-border-image: url(border.png) 30 30 stretch; /* Safari 5 and older */
+            -o-border-image: url(border.png) 30 30 stretch; /* Opera */
+            border-image: url(border.png) 30 30 stretch;
+        }
+
+        /*#example1 {
+            padding: 15px;
+            background-image: url(img_flwr.gif), url(paper.gif);
+            background-position: right bottom, left top;
+            background-repeat: no-repeat, repeat;
+        }*/
+        #example1 { /*同上*/
+            padding: 15px;
+            background: url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat;
+        }
+
+        .resize {
+            border: 1px solid #eee;
+            padding-top: 40px;
+            background: url(img_flwr.gif) 80px 60px no-repeat;
+        }
+
+        .stretch {
+            background: url(img_flwr.gif) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .location {
+            border: 10px solid #bababa;
+            padding: 35px;
+            background: url('smiley.gif') left no-repeat;
+        }
+
+        #div1 {
+            background-origin: border-box; /*在边框盒子中*/
+        }
+
+        #div2 {
+            background-origin: padding-box; /*在padding盒子中*/
+        }
+
+        #div3 {
+            background-origin: content-box; /*在文本盒子中*/
+        }
+
+        #example11 {
+            border: 10px dotted black;
+            padding:35px;
+            background: yellow;
+        }
+
+        #example22 {
+            border: 10px dotted black;
+            padding:35px;
+            background: yellow;
+            background-clip: padding-box;
+        }
+
+        #example33 {
+            border: 10px dotted black;
+            padding:35px;
+            background: yellow;
+            background-clip: content-box;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>简单样式:</h1>
+<div class="demo1">
+    <h4>我是一个简单样式</h4>
+</div>
+<br><br><br>
+
+<h1>复杂样式:</h1>
+<p><b>注意: </b> Internet Explorer 不支持 border-image 属性。</p>
+<p> border-image 属性用于设置图片的边框。</p>
+
+<div class="demo2" id="round">这里，图像平铺（重复）来填充该区域。</div>
+<br>
+<div class="demo2" id="stretch">这里，图像被拉伸以填充该区域。</div>
+
+<p>这是我们使用的图片素材：</p>
+<img src="border.png"/>
+<br><br><br>
+
+<h1>设置背景:</h1>
+<div id="example1">
+    <h1>Lorem Ipsum Dolor</h1>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+        dolore magna aliquam erat volutpat.</p>
+    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
+        commodo consequat.</p>
+</div>
+<br><br><br>
+
+<h1>重置背景图像:</h1>
+<div class="resize">
+    <p>
+        Lorem ipsum，中文又称“乱数假文”， 是指一篇常用于排版设计领域的拉丁文文章 ，主要的目的为测试文章或文字在不同字型、版型下看起来的效果。
+    </p>
+
+    <p>原始图片: <img src="img_flwr.gif" alt="Flowers" width="224" height="162"></p>
+</div>
+<br><br><br>
+
+<h1>伸展背景图像完全填充内容区域:</h1>
+<div class="stretch">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+    magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+    nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+    molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+    blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+</div>
+<br><br><br>
+
+<h1>定位背景图片:</h1>
+<p>背景图像边界框的相对位置：</p>
+<div class="location" id="div1">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+    magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+    nisl ut aliquip ex ea commodo consequat.
+</div>
+
+<p>背景图像的相对位置的padding框：</p>
+<div class="location" id="div2">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+    magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+    nisl ut aliquip ex ea commodo consequat.
+</div>
+
+<p>背景图像的相对位置的内容框：</p>
+<div class="location" id="div3">
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+    magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+    nisl ut aliquip ex ea commodo consequat.
+</div>
+<br><br><br>
+
+<h1>背景剪裁:</h1>
+<p>(border-box没有定义):</p>
+<div id="example11">
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+</div>
+
+<p>(background-clip: padding-box):</p>
+<div id="example22">
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+</div>
+
+<p>(background-clip: content-box):</p>
+<div id="example33">
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+</div>
+
+
+
+</body>
+</html>

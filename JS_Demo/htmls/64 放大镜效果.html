@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 350px;
+            margin: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .big {
+            width: 450px;
+            height: 450px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+        }
+
+        .mask {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+
+        .small {
+            position: relative;
+        }
+        .big img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="fdj">
+    <!--小盒子-->
+    <div class="small">
+        <img src="../images/001.jpg" alt=""/>
+        <div class="mask"></div>
+    </div>
+    <div class="big">
+        <img src="../images/0001.jpg" alt=""/>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var fdj = document.getElementById("fdj");
+    var small = fdj.children[0];
+    var big = fdj.children[1];
+    var mask = small.children[1];
+    var bigImage = big.children[0];
+
+    small.onmouseover = function () {
+        big.style.display = "block";
+        mask.style.display = "block";
+    }
+
+    small.onmouseout = function () {
+        big.style.display = "none";
+        mask.style.display = "none";
+    }
+
+    // 鼠标在 small内  缓动
+    small.onmousemove = function (event) {
+        var event = event || window.event;    //兼容ie678 的模式
+        var x = event.clientX - fdj.offsetLeft - mask.offsetWidth/2;
+        var y = event.clientY - fdj.offsetTop - mask.offsetHeight/2;
+
+        if ( x < 0 ){
+            x = 0;
+        } else if ( x > small.offsetWidth - mask.offsetWidth ){
+            x = small.offsetWidth - mask.offsetWidth;
+        }
+
+        if ( y < 0 ){
+            y = 0;
+        } else if ( y > small.offsetHeight - mask.offsetHeight ){
+            y = small.offsetHeight - mask.offsetHeight;
+        }
+
+        mask.style.left = x + "px";
+        mask.style.top = y + "px";
+
+        // 放大镜原理  小盒子移动 1px   则大盒子里的图片移动 1*(大盒子与小盒子长或宽的比例)px
+        bigImage.style.left = -x * big.offsetWidth/small.offsetWidth + "px";
+        bigImage.style.top = -y * big.offsetHeight/small.offsetHeight + "px";
+
+
+    }
+
+
+
+
+
+</script>

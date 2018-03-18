@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin: 0 50px;
+        }
+
+        .img1 {
+            border-radius: 8px;
+        }
+
+        .img2 {
+            border-radius: 50%;
+        }
+
+        .img3 {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+
+        a {
+            display: inline-block;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+
+        .img4 {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .img5 {
+            width: 100%;
+            height: auto;
+            opacity: 0.3;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .topleft {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            font-size: 18px;
+        }
+
+        .topright {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 18px;
+        }
+
+        .bottomleft {
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+            font-size: 18px;
+        }
+
+        .bottomright {
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+            font-size: 18px;
+        }
+
+        .center {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        div.polaroid {
+            width: 50%;
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin-bottom: 25px;
+        }
+
+        div.container1 {
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .lj img {
+            width: 33%;
+            height: auto;
+            float: left;
+            max-width: 235px;
+        }
+
+        .blur {
+            -webkit-filter: blur(4px);
+            filter: blur(4px);
+        }
+
+        .brightness {
+            -webkit-filter: brightness(250%);
+            filter: brightness(250%);
+        }
+
+        .contrast {
+            -webkit-filter: contrast(180%);
+            filter: contrast(180%);
+        }
+
+        .grayscale {
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+
+        .huerotate {
+            -webkit-filter: hue-rotate(180deg);
+            filter: hue-rotate(180deg);
+        }
+
+        .invert {
+            -webkit-filter: invert(100%);
+            filter: invert(100%);
+        }
+
+        .opacity {
+            -webkit-filter: opacity(50%);
+            filter: opacity(50%);
+        }
+
+        .saturate {
+            -webkit-filter: saturate(7);
+            filter: saturate(7);
+        }
+
+        .sepia {
+            -webkit-filter: sepia(100%);
+            filter: sepia(100%);
+        }
+
+        .shadow {
+            -webkit-filter: drop-shadow(8px 8px 10px green);
+            filter: drop-shadow(8px 8px 10px green);
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>圆角图片 : </h1>
+<p>使用 border-radius 属性来创建圆角图片:</p>
+<img class="img1" src="paris.jpg" alt="Paris" width="400" height="300">
+<br><br><br>
+
+<h1>椭圆形图片 : </h1>
+<p>使用 border-radius 属性来创建椭圆形图片：</p>
+<img class="img2" src="paris.jpg" alt="Paris" width="400" height="300">
+<br><br><br>
+
+<h1>缩略图 : </h1>
+<p>我们使用 border 属性来创建缩略图。</p>
+<img class="img3" src="paris.jpg" alt="Paris" width="400" height="300">
+<br><br><br>
+
+<h1>缩略图作为连接 : </h1>
+<p>我们使用 border 属性来创建缩略图。在图片外层添加一个链接。</p>
+<p>点击图片查看效果：</p>
+<a target="_blank" href="paris.jpg">
+    <img src="paris.jpg" alt="Paris" width="400" height="300">
+</a>
+<br><br><br>
+
+<h1>响应式图片 : </h1>
+<p>响应式图片会自动适配各种尺寸的屏幕。</p>
+<p>通过重置浏览器大小查看效果:</p>
+<img class="img4" src="http://www.runoob.com/wp-content/uploads/2016/04/trolltunga.jpg" alt="Norway" width="1000"
+     height="300">
+<br><br><br>
+
+<h1>图片文本 : </h1>
+<p>在图片各角添加文本信息:</p>
+<div class="container">
+    <img class="img5" src="http://www.runoob.com/wp-content/uploads/2016/04/trolltunga.jpg" alt="Norway" width="1000"
+         height="300">
+    <div class="topleft">左上角</div>
+    <div class="topright">右上角</div>
+    <div class="bottomleft">左下角</div>
+    <div class="bottomright">右下角</div>
+    <div class="center">居中</div>
+</div>
+<br><br><br>
+
+<h1>响应式卡片 : </h1>
+<div class="polaroid">
+    <img src="rock600x400.jpg" alt="Norway" style="width:100%">
+    <div class="container1">
+        <p>The Troll's tongue in Hardanger, Norway</p>
+    </div>
+</div>
+<div class="polaroid">
+    <img src="lights600x400.jpg" alt="Norway" style="width:100%">
+    <div class="container1">
+        <p>Northern Lights in Norway</p>
+    </div>
+</div>
+<br><br><br>
+
+<h1>图片滤镜 : </h1>
+<p><strong>注意:</strong> Internet Explorer <span lang="no-bok">或 Safari 5.1 (及更早版本)</span> 不支持该属性。</p>
+<div class="lj">
+    <img src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="blur" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="brightness" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="contrast" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="grayscale" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="huerotate" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="invert" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="opacity" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="saturate" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="sepia" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+    <img class="shadow" src="pineapple.jpg" alt="Pineapple" width="300" height="300">
+</div>
+
+
+</body>
+</html>

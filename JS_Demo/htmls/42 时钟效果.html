@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟效果</title>
+    <style>
+        .clock {
+            width: 600px;
+            height: 600px;
+            margin:50px auto;
+            background: url(../images/clock.jpg) no-repeat;
+            position: relative;
+        }
+        .clock div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        .h {
+            background: url(../images/hour.png) no-repeat center center;
+        }
+        .m {
+            background: url(../images/minute.png) no-repeat center center;
+        }
+        .s {
+            background: url(../images/second.png) no-repeat center center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function $(id) { return document.getElementById(id); }
+            var hour = $("hour");
+            var minute = $("minute");
+            var second = $("second");
+
+            // 开始定时器
+            var s=0, m=0, h=0, ms=0;
+            setInterval(function () {
+                var date = new Date();  //得到最新的时间
+                ms = date.getMilliseconds();  //得到现在的毫秒数
+                s = date.getSeconds() + ms / 1000;  //得到 秒
+                m = date.getMinutes() + s / 60;  //得到 分钟
+                h = date.getHours() % 12 + m / 60;  //得到 时
+
+                //旋转角度 涉及到css3
+                //一圈360°  60秒  每秒6°
+                //         谷歌是Web  火狐是Moz
+                second.style.WebkitTransform = "rotate(" + 6 * s + "deg)";
+                             // 变化              旋转    度
+                minute.style.WebkitTransform = "rotate(" + 6 * m + "deg)";
+                hour.style.WebkitTransform = "rotate(" + 30 * h + "deg)";
+
+
+            },1000)
+        }
+    </script>
+</head>
+<body>
+<div class="clock">
+    <div class="h" id="hour"></div>
+    <div class="m" id="minute"></div>
+    <div class="s" id="second"></div>
+</div>
+</body>
+</html>

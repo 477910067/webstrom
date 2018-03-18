@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<h1>在元素 和 template 中使用 v-if 指令 : </h1>
+<div id="app9">
+    <p v-if="seen">现在你看到我了</p>
+    <template v-if="ok">
+        <h3>菜鸟教程</h3>
+        <p>学的不仅是技术，更是梦想！</p>
+        <p>哈哈哈，打字辛苦啊！！！</p>
+    </template>
+</div>
+<br><br><br><br><br>
+
+<h1>随机生成一个数字，判断是否大于0.5，然后输出对应信息 : </h1>
+<div id="app10">
+    <div v-if="Math.random() > 0.5">
+        Sorry
+    </div>
+    <div v-else>
+        Not sorry
+    </div>
+</div>
+<br><br><br><br><br>
+
+<h1>v-else-if 在 2.1.0 新增，顾名思义，用作 v-if 的 else-if 块。可以链式的多次使用 : </h1>
+<div id="app11">
+    <div v-if="type === 'A'">
+        A
+    </div>
+    <div v-else-if="type === 'B'">
+        B
+    </div>
+    <div v-else-if="type === 'C'">
+        C
+    </div>
+    <div v-else>
+        Not A/B/C
+    </div>
+</div>
+<br><br><br><br><br>
+
+<h1>我们也可以使用 v-show 指令来根据条件展示元素 : </h1>
+<div id="app12">
+    <h3 v-show="ok">Hello!</h3>
+</div>
+<br><br><br><br><br>
+
+<script>
+    new Vue({
+        el: '#app9',
+        data: {
+            seen: true,
+            ok: true
+        }
+    });
+
+    new Vue({
+        el: '#app10'
+    });
+
+    new Vue({
+        el: '#app11',
+        data: {
+            type: 'C'
+        }
+    });
+
+    new Vue({
+        el: '#app12',
+        data: {
+            ok: true
+        }
+    });
+</script>
+</body>
+</html>

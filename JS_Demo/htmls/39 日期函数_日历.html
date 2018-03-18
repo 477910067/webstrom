@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期函数_日历</title>
+    <style>
+        .box{
+            width: 150px;
+            height: 180px;
+            background-color: red;
+            margin: 100px auto;
+            text-align: center;
+        }
+        .box p {text-align: center;
+            line-height: 60px;
+            font-size:12px;
+            color: #fff;
+        }
+        .box span{
+            display: block;
+            width: 75px;
+            height: 75px;
+            margin: 0 auto;
+            font-size:50px;
+            color: #000;
+            background-color: yellow;
+            line-height: 75px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("date");
+            var childs = box.children;
+
+            var date = new Date();   //声明日期函数
+
+            var arr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+            childs[0].innerHTML = date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
+                +" "+arr[date.getDay()];
+            childs[1].innerHTML = date.getDate();  //获取今天的日期
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="date">
+    <p></p>
+    <span></span>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量提升</title>
+</head>
+<body>
+<script>
+    var num = 10;
+    fun();
+    function fun(){
+        console.log(num);
+        var num = 20;
+    }  //结果：undefined
+
+    var a = 18;
+    f1();
+    function f1(){
+        var b=9;
+        console.log(a);
+        console.log(b);
+        var a = '123';
+    }  //结果：undefined 9
+
+    function f1(){
+        var b=9;
+        var a;
+        console.log(a);
+        console.log(b);
+        a = '123';
+        console.log(a);
+    }  //结果：undefined 9 123
+
+</script>
+</body>
+</html>

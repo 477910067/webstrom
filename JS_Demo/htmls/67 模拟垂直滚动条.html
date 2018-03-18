@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟垂直滚动条</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 300px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            height: auto;
+            padding: 5px 18px 5px 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .scroll {
+            width: 18px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #eee;
+        }
+
+        .bar {
+            width: 100%;
+            height: 100px;
+            background-color: red;
+            cursor: pointer;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="content">
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+        文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+    </div>
+    <div class="scroll">
+        <div class="bar"></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");  //获取大盒子
+    var content = box.children[0];    //获取内容盒子
+    var scroll = box.children[1];     //获取 右边盒子
+    var bar = scroll.children[0];     //获取 滚动块
+
+    // 首先 先要计算滚动条的高度    内容越多 滚动条越短
+    // 滚动条的计算公式 : 容器的高度 / 内容的高度 * 容器的高度
+    var barHeight = box.offsetHeight / content.offsetHeight * box.offsetHeight;
+    if (content.offsetHeight <= box.offsetHeight){
+        bar.style.height = box.offsetHeight + "px";
+    } else {
+        bar.style.height = barHeight + "px";
+    }
+
+    starScroll(bar,content);
+    function starScroll(obj,target) {
+        obj.onmousedown = function (event) {
+
+            var event  = event || window.event;
+            var t = event.clientY - this.offsetTop;   // 滑块 距离 父盒子顶部 的距离
+            var that = this;
+            document.onmousemove = function (event) {
+                var event  = event || window.event;
+                var barTop = event.clientY - t;
+                // 其次 计算内容盒子要移动的距离
+                // 公式 : ( 内容盒子高度 - 大盒子高度 ) / ( 大盒子高度 - 滑块高度 ) * 滑块移动的数值
+                var contentTop = ( target.offsetHeight - box.offsetHeight ) /
+                    ( box.offsetHeight - that.offsetHeight ) * barTop;
+
+                if (barTop < 0){
+                    barTop = 0
+                } else if (barTop > box.offsetHeight - that.offsetHeight){
+                    barTop = that.offsetTop;
+                } else {
+                    target.style.top = - contentTop + "px";
+                }
+                that.style.top = barTop + "px";
+
+                // 防止拖动时选中任何的内容 的 兼容 ie678 的模式
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            }
+
+        }
+    }
+
+
+</script>

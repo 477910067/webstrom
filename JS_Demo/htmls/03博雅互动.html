@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博雅互动首页</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .c1{
+            clear: both;
+        }
+        .inner_c{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        body{
+            font-size: 14px;
+            font-family: "Microsoft Yahei", "SimSun";
+        }
+        .header{
+            height: 58px;
+            background-color: #191D3A;
+        }
+        .header h1.logo{
+            float: left;
+            padding-right: 40px;
+            height: 58px;
+        }
+        .header .nav{
+            float: left;
+        }
+        .header .nav ul{
+            list-style: none;
+        }
+        .header .nav ul li{
+            width: 100px;
+            float: left;
+            line-height: 58px;
+            border-left: 1px solid #252947;
+        }
+        .header .nav ul li.last{
+            border-right: 1px solid #252947;
+        }
+        .header .nav ul li a{
+            text-align: center;
+            display: block;
+            height: 58px;
+            color: #818496;
+            text-decoration: none;
+        }
+        .header .nav ul li a.current{
+            background: #252947;
+            color:white;
+        }
+        .header .nav ul li a:hover{
+            background-color: #252947;
+            color: white;
+        }
+        .header .jrwm{
+            float: left;
+            padding-left: 48px;
+            padding-top: 12px;
+        }
+        .banner{
+            height: 465px;
+            background: url("../images/banner.jpg") no-repeat center top;
+        }
+        .content .product{
+            float: left;
+            height: 230px;
+            padding-top: 50px;
+            border-bottom: 1px solid #DBE1E7;
+        }
+        .content .product ul{
+            list-style: none;
+        }
+        .content .product ul li{
+            float: left;
+            width: 218px;
+            padding-right: 43px;
+        }
+        .content .product ul li img{
+            width: 218px;
+            height: 130px;
+        }
+        .content .product ul li.last{
+            padding-right: 0;
+            width: 217px;
+        }
+        .content .product ul li.last img{
+            width: 217px;
+        }
+        .content .product ul li h3{
+            font-size: 14px;
+            line-height: 38px;
+            text-align: center;
+        }
+        .content .product ul li p.tp{
+            height: 130px;
+        }
+        .content .product ul li p.djbf{
+            text-align: center;
+            line-height: 16px;
+        }
+        .content .product ul li p.djbf a{
+            font-size: 12px;
+            color: #38B774;
+            text-decoration: none;
+            padding-right: 12px;
+            background: url("../images/sanjiaoxing.png") no-repeat right 5px;
+        }
+        .new{
+            height: 367px;
+            margin-top: 53px;
+            background: url("../images/indexmainbg.jpg") no-repeat center top;
+        }
+        .new .news .new_left{
+            float: left;
+            width: 500px;
+            background: url("../images/bynewsbg.jpg") no-repeat center top;
+        }
+        .new .news .new_left img{
+            padding-top: 39px;
+            padding-left: 218px;
+        }
+        .new .news .new_left ul{
+            width: 460px;
+            list-style: none;
+            padding-top: 38px;
+            padding-left: 20px;
+        }
+        .new .news .new_left ul li{
+            line-height: 48px;
+            border-bottom: 1px solid #DBE1E7;
+        }
+        .new .news .new_left ul li a{
+            text-decoration: none;
+            color: black;
+        }
+        .new .news .new_left ul li a:hover{
+            color: #38B774;
+        }
+        .new .news .new_left ul span{
+            padding-right: 22px;
+            font-size: 12px;
+            font-family: "Microsoft Yahei", "SimSun";
+            color: #D9CCCF;
+        }
+        .new .news .new_right{
+            float: left;
+            width: 500px;
+            background: url("../images/byhrbg3.jpg");
+            color: #FFFFFF;
+        }
+        .new .news .new_right .title{
+            float: left;
+            width: 114px;
+            padding-left: 79px;
+            padding-top: 38px;
+        }
+        .new .news .new_right .title h3{
+            font-size: 28px;
+            font-family: "Microsoft Yahei", "SimSun";
+            font-weight: bold;
+        }
+        .new .news .new_right .title p{
+            font-size: 12px;
+            font-family: "Microsoft Yahei", "SimSun";
+        }
+        .new .news .new_right .more{
+            float: left;
+            padding-top: 39px;
+            padding-left: 25px;
+        }
+        .new .news .new_right .gangwei{
+            padding-left: 20px;
+            font-size: 14px;
+            font-family: "Microsoft Yahei", "SimSun";
+        }
+        .new .news .new_right .gangwei p{
+            padding-top: 19px;
+            line-height: 20px;
+            font-weight: bold;
+        }
+        .new .news .new_right .gangwei ul{
+            list-style: none;
+            width: 305px;
+            padding-bottom: 27px;
+        }
+        .new .news .new_right .gangwei ul li{
+            line-height: 37px;
+            border-bottom: 1px solid #6FDEA3;
+        }
+        .new .news .new_right .gangwei ul li a{
+            color: white;
+            text-decoration: none;
+        }
+        .new .news .new_right .gangwei ul li a:hover{
+            color: black;
+        }
+        .bottom{
+            height: 91px;
+            background-color: #191D3A;
+        }
+        .bottom .nav{
+            float: left;
+        }
+        .bottom .nav ul{
+            list-style: none;
+        }
+        .bottom .nav ul li{
+            float: left;
+            width: 61px;
+            line-height: 14px;
+            text-align: center;
+            margin-top: 39px;
+            border-left: 1px solid #6C6E7E;
+        }
+        .bottom .nav ul li.first{
+            border-left: none;
+        }
+        .bottom .nav ul li a{
+            font-size: 12px;
+            text-decoration: none;
+            color: #6C6E7E;
+        }
+        .bottom .jing{
+            float: right;
+        }
+        .bottom .jing img{
+            width:  41px;
+            padding-top: 21px;
+        }
+        .bottom .copyright{
+            float: right;
+            font-size: 12px;
+            padding-top: 39px;
+            padding-right: 10px;
+            color: #6C6E7E;
+        }
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <div class="header">
+        <div class="inner_c">
+            <h1 class="logo">
+                <img src="../images/logo.png">
+            </h1>
+            <div class="nav">
+                <ul>
+                    <li><a class="current" href="#">首页</a></li>
+                    <li><a href="#">博雅游戏</a></li>
+                    <li><a href="#">博雅新闻</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">客服中心</a></li>
+                    <li class="last"><a href="#">投资者关系</a></li>
+                </ul>
+            </div>
+            <div class="jrwm">
+                <a href="#"><img src="../images/jrwm.png"></a>
+            </div>
+        </div>
+    </div>
+    <!--隔墙-->
+    <div class="c1"></div>
+    <!--banner-->
+    <div class="banner"></div>
+    <!--内容-->
+    <div class="content inner_c">
+        <div class="product">
+            <ul>
+                <li>
+                    <p class="tp"><img src="../images/pro1.jpg"></p>
+                    <h3>BPT宣传片</h3>
+                    <p class="djbf"><a href="#">点击播放</a></p>
+                </li>
+                <li>
+                    <p class="tp"><img src="../images/pro2.jpg"></p>
+                    <h3>博雅互动宣传视频</h3>
+                    <p class="djbf"><a href="#">点击播放</a></p>
+                </li>
+                <li>
+                    <p class="tp"><img src="../images/pro3.jpg"></p>
+                    <h3>斗地主</h3>
+                    <p class="djbf"><a href="#">点击播放</a></p>
+                </li>
+                <li class="last">
+                    <p class="tp"><img src="../images/pro4.jpg"></p>
+                    <h3>德州扑克</h3>
+                    <p class="djbf"><a href="#">点击播放</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--隔墙-->
+    <div class="c1"></div>
+    <!--新闻-->
+    <div class="new">
+        <div class="news inner_c">
+            <div class="new_left">
+                <a href="#"><img src="../images/more1.png" alt=""></a>
+                <ul>
+                    <li><span>09 / 28</span><a href="#">2015博雅国际扑克大赛（BPT）在澳门落幕</a></li>
+                    <li><span>08 / 26</span><a href="#">2015 BPT博雅国际扑克大赛重磅来袭</a></li>
+                    <li><span>08 / 01</span><a href="#">博雅互动与阿里游戏联手启动“淘宝杯首届电视棋牌大赛”</a></li>
+                    <li><span>07 / 21</span><a href="#">湖南省省长杜家豪一行参观博雅互动</a></li>
+                </ul>
+            </div>
+            <div class="new_right">
+                <div class="title">
+                    <h3>专场招聘</h3>
+                    <p>BOYAA JOBS</p>
+                </div>
+                <div class="more">
+                    <a href="#"><img src="../images/more.png" alt=""></a>
+                </div>
+                <div class="c1"></div>
+                <div class="gangwei">
+                    <p>专场招聘岗位：</p>
+                    <ul>
+                        <li><a href="#">PHP开发工程师</a></li>
+                        <li><a href="#">C++开发工程师</a></li>
+                        <li><a href="#">WEB前端开发工程师</a></li>
+                        <li><a href="#">大数据开发工程师</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部-->
+    <div class="bottom">
+        <div class="inner_c">
+            <div class="nav">
+                <ul>
+                    <li class="first"><a href="#">网站地图</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+            <div class="jing">
+                <img src="../images/govIcon.gif" alt="">
+            </div>
+            <div class="copyright">Copyright @ 2004-2014 文字文字文字文字文字文字文字文字文字文字 123123123123 </div>
+        </div>
+    </div>
+</body>
+</html>

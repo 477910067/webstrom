@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的常用方法</title>
+</head>
+<body>
+<script>
+    var arr = [3,4,5];
+    /*==================添加数组内容======================*/
+
+    arr.push(7,9);  //把 7 9 放在 arr 数组的后面
+    console.log(arr);  //返回的是 数组    (5) [3, 4, 5, 7, 9]
+
+    arr.unshift(0);  //从前面 把 0 放入 arr 数组
+    console.log(arr);   //返回的是 数组    (6) [0, 3, 4, 5, 7, 9]
+
+    /*与上面写法不一样*/
+    console.log(arr.push(11));  //返回值是 数组长度    7
+    console.log(arr);  // (7) [0, 3, 4, 5, 7, 9, 11]
+
+    /*=====================删除数组内容====================*/
+
+    arr.pop();   //删除最后一个元素
+    console.log(arr);   //  (6) [0, 3, 4, 5, 7, 9]
+
+    /*与上面写法不一样*/
+    console.log(arr.pop());  //返回值是 返回删除的那个值    9
+
+    arr.shift();    //删除第一个元素
+    console.log(arr);   // (4) [3, 4, 5, 7]
+
+    /*=====================连接两个数组====================*/
+    var b = ["a","b","c"];
+    console.log(arr.concat(b));  //  (7) [3, 4, 5, 7, "a", "b", "c"]
+
+    /*===================数组转换为字符串================*/
+    console.log(b.join("-"));   // 数组名.join("连接符号")      a-b-c
+    console.log(b);    //数组本身不会改变    (3) ["a", "b", "c"]
+
+    /*===================字符串转换为数组================*/
+    var cc = "aa+bb+cc";
+    console.log(cc.split("+"));   //字符串名.split("连接符号")    (3) ["aa", "bb", "cc"]
+    console.log(cc);   //字符串本身不会改变     aa+bb+cc
+
+
+
+
+
+</script>
+</body>
+</html>

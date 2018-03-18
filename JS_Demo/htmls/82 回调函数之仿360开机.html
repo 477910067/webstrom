@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 322px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+
+        span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var b = document.getElementById("b");
+            var closeAd = document.getElementsByTagName("span")[0];
+
+            closeAd.onclick = function () {
+                animate(b, {height: 0}, function () {
+                    animate(b.parentNode,{width:0});
+                });
+
+            }
+
+            var timer = null;
+            // 封装的动画函数添加回调
+            function animate(obj,json,fn) {   // 给谁 json
+                clearInterval(timer);
+                obj.timer = setInterval(function () {
+                    var flag = true;   // 用来判断是否停止定时器
+                    // 先遍历json
+                    for (var k in json){   // 这里的 k 是当前样式的属性
+                        // 目标位置就是 属性值
+                        var current = parseInt(getStyle(obj,k));   // 得到当前的样式 的数值
+                        // 用target位置 减去当前的位置 再除以10
+                        var step = ( json[k] - current ) / 10;    // 步长
+                        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                        obj.style[k] = current + step + "px";
+                        // 开始动画
+                        if (current != json[k]) {   // 只要json中有一个未停止 就不满足停止条件  这句一定在遍历里面
+                            flag = false;
+                        }
+                    }
+                    if (flag) {
+                        clearInterval(timer);
+                        if (fn) {  // 如果有回调 执行回调
+                            fn();
+                        }
+                    }
+                },30)
+            }
+
+            function getStyle(obj,attr) {   // 第一个参数 谁的   第二个参数 哪个属性
+                if (obj.currentStyle){   // 兼容 ie 678 浏览器
+                    // attr为字符串  相当于"width"    style.width 等价于 style["width"]
+                    return obj.currentStyle[attr];
+                } else {   // W3C 浏览器
+                    return window.getComputedStyle(obj,null)[attr];
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+    <span></span>
+    <div class="hd" id="t">
+        <img src="../images/360t.jpg" alt=""/>
+    </div>
+    <div class="bd" id="b">
+        <img src="../images/360b.jpg" alt=""/>
+    </div>
+</div>
+</body>
+</html>

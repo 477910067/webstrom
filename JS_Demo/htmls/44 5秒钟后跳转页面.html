@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5秒后跳转页面</title>
+</head>
+<body>
+<div id="demo"></div>
+</body>
+</html>
+<script>
+    var demo = document.getElementById("demo");
+    var count = 10;
+    var speed = 1000;
+    setTimeout(goIndexPage,speed);  // speed时间  之后  执行这个函数
+    function goIndexPage() {
+        count--;
+        demo.innerHTML = "<a href='http://www.baidu.com'>本页面将在"+ count +"秒钟之后跳转页面</a>";
+        if ( count <= 0 ){
+            // 如果时间到了  小于0  跳转到指定页面
+            window.location.href = "http://www.baidu.com";
+        } else {
+            //setTimeout(goIndexPage,speed);  // 函数自己调用自己  递归
+            setTimeout(arguments.callee,speed);  // arguments 参数,实参
+            // arguments.callee  返回的是正在执行的函数  只在正在使用的函数内使用
+            //在使用  递归函数  的时候 推荐使用这个  代替函数名本身
+            // callee  就是  function goIndexPage() {}  这个函数
+        }
+    }
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onresize事件适应页面缩放</title>
+    <script src="../js/my.js" type="text/javascript"></script>
+    <script>
+        window.onload = function () {
+            // 这里的reSize不能带括号
+            // 带括号的表示   调用 返回的是结果 立即执行 只执行一次
+            // 不带括号表示   返回函数体 只要页面打开着 就要执行着这个函数
+            window.onresize = reSize;
+
+            /* 封装适应页面缩放的函数 */
+            function reSize() {
+                var clientWidth = client().width;
+                if (clientWidth >= 960){
+                    document.body.style.backgroundColor = "red";
+                } else if (clientWidth >= 640){
+                    document.body.style.backgroundColor = "yellow";
+                } else if (clientWidth >= 350){
+                    document.body.style.backgroundColor = "green";
+                } else {
+                    document.body.style.backgroundColor = "blue";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

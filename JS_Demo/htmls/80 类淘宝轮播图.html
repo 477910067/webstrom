@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类淘宝轮播图</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            /* 封装动画函数 */
+            function animate(obj,target) {   // 第一个参数 动谁   第二个参数 动多少
+                var timer = null;
+                clearInterval(timer);  // 第一步首先清理定时器
+                obj.timer = setInterval(function () {
+                    // 计算步长
+                    var step = (target - obj.offsetLeft) / 10;
+                    // 步长取整
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    // 动画原理   盒子本身的位置 + 步长(不断变化的)
+                    obj.style.left = obj.offsetLeft + step + "px";
+                    if (obj.offsetLeft == target){
+                        clearInterval(obj.timer);
+                    }
+                },10)
+            }
+
+            // 1.获取元素
+            var box = document.getElementById("all");
+            var ul = document.getElementById("ul");
+            var ulList = ul.children;
+
+            // 2.操作元素
+            // 因为我们要做无缝滚动 所以要克隆第一张 放到最后一张后面去
+            // (1).克隆
+            ul.appendChild(ul.children[0].cloneNode(true));  // 克隆完毕
+
+            // (2).创建 ol 和 小li
+            var ol = document.createElement("ol");   // 创建一个ol标签
+            box.appendChild(ol);
+            for(var i=0; i<ulList.length-1; i++){
+                var li = document.createElement("li");
+                li.innerHTML = i + 1;
+                ol.appendChild(li);
+            }
+            ol.children[0].className = "current";
+
+            // (3).开始动画部分
+            var olList = ol.children;
+            for (var i=0; i<olList.length; i++){
+                olList[i].index = i;  // 获得 当前的 小li 的索引号
+                olList[i].onmouseover = function () {
+                    for (var j=0; j<olList.length; j++){
+                        olList[j].className = "";   // 首先所有li的class都要清空
+                    }
+                    this.className = "current";   // 其次 只有当前的小li添加class
+                    animate(ul,-this.index * 500);   // 调用动画函数
+                    square = key = this.index;
+                }
+            }
+
+            // (4).添加定时器
+            var timer = null;
+            var key = 0;   // 控制播放张数
+            var square = 0;  // 控制小方块
+            timer = setInterval(autoPlay,1000);   // 开始轮播图定时器
+            function autoPlay() {
+                key++;
+                if (key > ulList.length - 1){
+                    ul.style.left = 0;
+                    key = 1;   // 因循环时 最后一张为第一张图克隆图
+                    // 当key为0时 又要快速回到第一张 重新循环 故为1省去第一张的展示时间
+                }
+                animate(ul,-key*500);
+
+                // 开始小方块跟着图走
+                square++;
+                if (square > olList.length - 1){
+                    square = 0;
+                }
+                for (var i=0; i<olList.length; i++){
+                    olList[i].className = "";
+                }
+                olList[square].className = "current";
+            }
+
+            // (5).最后 鼠标经过大盒子要停止定时器
+            box.onmouseover = function () {
+                clearInterval(timer);
+            }
+            box.onmouseout = function () {
+                timer = setInterval(autoPlay,1000);
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="all" id="all">
+    <div class="screen">
+        <ul id="ul">
+            <li><img src="../images/taobao1.jpg" width="500" height="200"/></li>
+            <li><img src="../images/taobao2.jpg" width="500" height="200"/></li>
+            <li><img src="../images/taobao3.jpg" width="500" height="200"/></li>
+            <li><img src="../images/taobao4.jpg" width="500" height="200"/></li>
+            <li><img src="../images/taobao5.jpg" width="500" height="200"/></li>
+        </ul>
+    </div>
+    <!--<ol>    // 这里通过JS来创建添加
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>-->
+</div>
+</body>
+</html>

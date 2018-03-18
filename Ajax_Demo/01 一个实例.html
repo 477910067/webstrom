@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function loadXMLDoc() {
+            var xmlhttp;   // 接收 创建的 XMLHttpRequest 对象  → 用于和服务器交换数据
+
+            // 检查浏览器是否支持 XMLHttpRequest 对象
+            if (window.XMLHttpRequest) {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                }
+            };
+
+            // 规定请求的类型、URL 以及是否异步处理请求
+            xmlhttp.open("GET", "ajax_info.txt", true);   // true（异步）、 false（同步）
+            // 当使用 true 时,需规定在响应处于 onreadystatechange 事件中的就绪状态时执行的函数
+            // 当使用 false 时，不要编写 onreadystatechange 函数 把代码放到 send() 语句后面即可
+
+            // 将请求发送到服务器
+            xmlhttp.send();
+
+            // 与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。
+            /*
+            * 然而，在以下情况中，请使用 POST 请求：
+            * 1.无法使用缓存文件（更新服务器上的文件或数据库）
+            * 2.向服务器发送大量数据（POST 没有数据量限制）
+            * 3.发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
+            */
+        }
+    </script>
+</head>
+<body>
+
+<div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
+<button type="button" onclick="loadXMLDoc()">修改内容</button>
+
+</body>
+</html>

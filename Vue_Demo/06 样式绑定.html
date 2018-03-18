@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .active {
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+
+        .text-danger {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+<h1>我们可以为 v-bind:class 设置一个对象，从而动态的切换 class : </h1>
+<div id="app">
+    <div v-bind:class="{ active: isActive }"></div>
+</div>
+<br><br><br>
+
+<h1>也可以在对象中传入更多属性用来动态切换多个 class : </h1>
+<div id="app2">
+    <div class="static"
+         v-bind:class="{ active: isActive, 'text-danger': hasError }">
+    </div>
+</div>
+<br><br><br>
+
+<h1>也可以直接绑定数据里的一个对象 : </h1>
+<div id="app3">
+    <div v-bind:class="classObject"></div>
+</div>
+<br><br><br>
+
+<h1>也可以在这里绑定返回对象的计算属性。这是一个常用且强大的模式 : </h1>
+<div id="app4">
+    <div v-bind:class="classObject"></div>
+</div>
+<br><br><br>
+
+<h1>可以把一个数组传给 v-bind:class : </h1>
+<div id="app5">
+    <div v-bind:class="[activeClass, errorClass]"></div>
+</div>
+<br><br><br>
+
+<h1>还可以使用三元表达式来切换列表中的 class : </h1>
+<div id="app6">
+    <div v-bind:class="[errorClass ,isActive ? activeClass : '']"></div>
+</div>
+<br><br><br>
+
+<h1>可以在 v-bind:style 直接设置样式 : </h1>
+<div id="app7">
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">菜鸟教程</div>
+</div>
+<br><br><br>
+
+<h1>也可以直接绑定到一个样式对象，让模板更清晰 : </h1>
+<div id="app8">
+    <div v-bind:style="styleObject">菜鸟教程</div>
+</div>
+<br><br><br>
+
+<h1>v-bind:style 可以使用数组将多个样式对象应用到一个元素上 : </h1>
+<div id="app9">
+    <div v-bind:style="[baseStyles, overridingStyles]">菜鸟教程</div>
+</div>
+<br><br><br>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isActive: true
+        }
+    });
+
+    new Vue({
+        el: '#app2',
+        data: {
+            isActive: true,
+            hasError: true
+        }
+    });
+
+    new Vue({
+        el: '#app3',
+        data: {
+            classObject: {
+                active: true,
+                'text-danger': true
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app4',
+        data: {
+            isActive: true,
+            error: null
+        },
+        computed: {
+            classObject: function () {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal'
+                }
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app5',
+        data: {
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    });
+
+    new Vue({
+        el: '#app6',
+        data: {
+            isActive: true,
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    });
+
+    new Vue({
+        el: '#app7',
+        data: {
+            activeColor: 'green',
+            fontSize: 30
+        }
+    });
+
+    new Vue({
+        el: '#app8',
+        data: {
+            styleObject: {
+                color: 'green',
+                fontSize: '30px'
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app9',
+        data: {
+            baseStyles: {
+                color: 'green',
+                fontSize: '30px'
+            },
+            overridingStyles: {
+                'font-weight': 'bold'
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

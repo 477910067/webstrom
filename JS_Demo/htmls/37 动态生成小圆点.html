@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成小圆点</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,ol{list-style:none}
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle {
+            position: absolute;
+            left: 50%;
+            margin-left:-50px;
+            bottom:10px;
+        }
+        .circle span {
+            float: left;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: pink;
+            text-align: center;
+            line-height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .circle span.current {
+            background-color: purple;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var demo = document.getElementById("scroll");
+            var newdiv = document.createElement("div");
+            //newdiv.className = "circle";
+            newdiv.setAttribute("class","circle");  //此法更为常用
+            demo.parentNode.appendChild(newdiv);
+
+            var ul = document.getElementById("ul");
+            //var lis = ul.getElementsByTagName("li");
+            var lis = ul.children;  // ul 的所有孩子
+
+            for (var i=0; i<lis.length; i++){
+                var newspan = document.createElement("span");  // 创建 6次 span
+                newspan.innerHTML = i+1;
+                newdiv.appendChild(newspan);
+            }
+
+            var child = newdiv.children;
+            child[0].setAttribute("class","current");  // 第一个孩子 添加 current
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="slider" id="scroll">
+        <ul id="ul">
+            <li><img src="../images/slider1.jpg" alt=""/></li>
+            <li><img src="../images/slider2.jpg" alt=""/></li>
+            <li><img src="../images/slider3.jpg" alt=""/></li>
+            <li><img src="../images/slider4.jpg" alt=""/></li>
+            <li><img src="../images/slider5.jpg" alt=""/></li>
+            <li><img src="../images/slider6.jpg" alt=""/></li>
+        </ul>
+    </div>
+    <!--<div class="circle">   //不需要写 由JS部分动态生成
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+    </div>-->
+</div>
+</body>
+</html>

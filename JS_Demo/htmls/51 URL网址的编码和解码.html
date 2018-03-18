@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL网址编码和解码</title>
+</head>
+<body>
+<script>
+    var url = "http://www.baidu.com?name=andy";
+    console.log(encodeURIComponent(url));  // 编码
+    var afterurl = encodeURIComponent(url);
+    console.log(decodeURIComponent(afterurl));  // 解码
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+
+<!--v-for 指令需要以 site in sites 形式的特殊语法， sites 是源数据数组并且 site 是数组元素迭代的别名-->
+<h1>v-for 可以绑定数据到数组来渲染一个列表 : </h1>
+<div id="app13">
+    <ol>
+        <li v-for="site in sites">
+            {{ site.name }}
+        </li>
+    </ol>
+</div>
+<br><br><br><br><br>
+
+<h1>模板中使用 v-for : </h1>
+<div id="app14">
+    <ul>
+        <template v-for="site in sites">
+            <li>{{ site.name }}</li>
+            <li>--------------</li>
+        </template>
+    </ul>
+</div>
+<br><br><br><br><br>
+
+<h1>v-for 可以通过一个对象的属性来迭代数据 : </h1>
+<div id="app15">
+    <ul>
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+    </ul>
+</div>
+<br><br><br><br><br>
+
+<h1>也可以提供第二个的参数为键名 : </h1>
+<div id="app16">
+    <ul>
+        <li v-for="(value, key) in object">
+            {{ key }} : {{ value }}
+        </li>
+    </ul>
+</div>
+<br><br><br><br><br>
+
+<h1>第三个参数为索引 : </h1>
+<div id="app17">
+    <ul>
+        <li v-for="(value, key, index) in object">
+            {{ index }}. {{ key }} : {{ value }}
+        </li>
+    </ul>
+</div>
+<br><br><br><br><br>
+
+<h1>v-for 也可以循环整数 : </h1>
+<div id="app18">
+    <ul>
+        <li v-for="n in 10">
+            {{ n }}
+        </li>
+    </ul>
+</div>
+<br><br><br><br><br>
+
+<script>
+
+    new Vue({
+        el: '#app13',
+        data: {
+            sites: [
+                {name: 'Runoob'},
+                {name: 'Google'},
+                {name: 'Taobao'}
+            ]
+        }
+    });
+
+    new Vue({
+        el: '#app14',
+        data: {
+            sites: [
+                {name: 'Runoob'},
+                {name: 'Google'},
+                {name: 'Taobao'}
+            ]
+        }
+    });
+
+    new Vue({
+        el: '#app15',
+        data: {
+            object: {
+                name: '菜鸟教程',
+                url: 'http://www.runoob.com',
+                slogan: '学的不仅是技术，更是梦想！'
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app16',
+        data: {
+            object: {
+                name: '菜鸟教程',
+                url: 'http://www.runoob.com',
+                slogan: '学的不仅是技术，更是梦想！'
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app17',
+        data: {
+            object: {
+                name: '菜鸟教程',
+                url: 'http://www.runoob.com',
+                slogan: '学的不仅是技术，更是梦想！'
+            }
+        }
+    });
+
+    new Vue({
+        el: '#app18'
+    });
+
+
+</script>
+</body>
+</html>

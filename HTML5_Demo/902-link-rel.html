@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链接关系</title>
+</head>
+<body>
+
+<header>
+    <h1>网页标题</h1>
+</header>
+
+<!--通过链接关系属性 声明 链入的链接 和当前文档 之间的关系 -->
+<a href="01-application-tags.html" rel="prve">上一页</a>
+<a href="xxx.html">next</a>
+<a href="xxx.html">aaa</a>
+<a href="xxx.html">bbb</a>
+
+</body>
+</html>
+<script>
+    // 应对有些浏览器不兼容HTML5标签的解决方案    html5shiv.js
+    // 告诉浏览器 这是一个标签
+    document.createElement("header");
+</script>

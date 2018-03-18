@@ -1,0 +1,556 @@
+@charset "UTF-8";
+
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset, img, input, button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";
+}
+
+select, input {
+    vertical-align: middle;
+}
+
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+
+/*防止拖动*/
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+
+/*  去掉图片低测默认的3像素空白缝隙*/
+table {
+    border-collapse: collapse;
+}
+
+body {
+    font: 12px/150% Arial, Verdana, "\5b8b\4f53";
+    color: #666;
+    background: #fff
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #C81623;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
+.col-red {
+    color: #C81623 !important;
+}
+
+.c1{
+    clear: both;
+    height: 100px;
+}
+
+
+/*公共类*/
+.w { /*版心 提取 */
+    width: 1210px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.al {
+    text-align: left
+}
+
+.ac {
+    text-align: center
+}
+
+.ar {
+    text-align: right
+}
+
+.hide {
+    display: none
+}
+
+/*登录弹出框*/
+#mask{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 999;
+}
+
+#box{
+    display: none;
+    width: 400px;
+    height: 250px;
+    background-color: #fff;
+    position: fixed;
+    left: 34%;
+    top: 34%;
+    z-index: 1000;
+
+}
+
+#box span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/*头部导航开始*/
+.shortcut {
+    height: 30px;
+    line-height: 30px;
+    background-color: #f1f1f1;
+}
+
+.shortcut .w .dt{
+    position: relative;
+    padding: 0 20px 0 10px;
+}
+
+.shortcut .w .dt i{
+    font:400 15px/15px "宋体";
+    position: absolute;
+    right: 3px;
+    top: 13px;
+    height: 7px;
+    width: 15px;
+    overflow: hidden;
+}
+
+.shortcut .w .dt s{
+    position: absolute;
+    left: 0;
+    top: -8px;
+}
+
+.shortcut .fr li{
+    float: left;
+    padding: 0 10px;
+}
+
+.shortcut .w .fr .line{
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    margin-top: 9px;
+    padding: 0;
+}
+
+.shortcut .w .fr .tel-jd{
+    padding: 0 20px 0 25px;
+}
+
+.shortcut .w .fr .tel-jd .tel{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 15px;
+    height: 20px;
+    background: url(../images/sprite.png) no-repeat;
+}
+
+
+/*京东的搜索框部分*/
+.jd-search .log {
+    float: left;
+    text-indent: -999px;
+    margin-right: 10px;
+}
+
+a.jd_a{
+    float: left;
+    display: block;
+    width: 168px;
+    height: 60px;
+    background: url("../images/logo.png") no-repeat 0 0;
+    margin: 20px 0;
+}
+
+.log .db11{
+    float: left;
+    width: 180px;
+}
+
+.log .db11 a img {
+    display: block;
+    margin-top: 5px;
+}
+
+.search{
+    float: left;
+    width: 538px;
+    height: 35px;
+    margin-top: 25px;
+}
+
+.search input{
+    float: left;
+    line-height:32px;
+    border: 2px solid #C81623;
+    color: #666;
+    font: 14px/32px "Microsoft YaHei";
+    padding-left: 5px;
+    width: 450px;
+
+}
+
+.search button{
+    float: left;
+    background-color: #C81623;
+    line-height: 36px;
+    width: 79px;
+    color: white;
+    font: 16px/36px "Microsoft YaHei";
+    cursor: pointer;   /*让鼠标变成小手样式*/
+}
+
+.car{
+    float: right;
+    width: 96px;
+    margin: 25px 65px 0 0;
+    border: 1px solid #DFDFDF;
+    background-color: #fbfbfb;
+    line-height: 34px;
+    padding-left: 43px;
+    position: relative;
+}
+
+.car .icon1{
+    width: 16px;
+    height: 13px;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    background: url("../images/sprite.png") no-repeat -1px -59px;
+}
+
+.car .icon2{
+    font:400 13px/13px "SimSun";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.car .icon3{
+    position: absolute;
+    right: 23px;
+    top: -8px;
+    width: 15px;
+    line-height: 14px;
+    background-color: #C81623;
+    color: white;
+    border-radius: 7px 7px 7px 0;
+}
+
+.hotwords{
+    float: left;
+    width: 538px;
+    line-height: 14px;
+    padding-top: 10px;
+}
+
+.hotwords a{
+    padding: 0 3px;
+}
+
+
+/*nav部分开始*/
+.jd-nav{
+    height: 44px;
+    border-bottom: 2px solid #B1191A;
+}
+
+.jd-nav .dropdown{
+    width: 216px;
+    height: 44px;
+    overflow: visible;
+    position: relative;
+    z-index: 10;
+}
+
+.jd-nav .dropdown .dt{
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.jd-nav .dropdown .dt a{
+    display: block;
+    font: 400 15px/44px "Microsoft YaHei";
+    color: #fff;
+    background-color: #B1191A;
+    padding: 0 0 0 10px;
+}
+
+.jd-nav .dropdown .dt span{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    width: 20px;
+    height: 16px;
+    overflow: hidden;
+}
+
+.jd-nav .dropdown .dt span b{
+    position: absolute;
+    left:0;
+    top: -16px;
+    font: bold 30px/30px "Microsoft YaHei";
+    color: #fff;
+}
+
+.jd-nav .dropdown .dd{
+    height: 466px;
+    background-color: #C81623;
+    border-left: 1px solid #B1191A;
+}
+
+.jd-nav .dropdown .dd a{
+    float: left;
+    display: block;
+    width: 190px;
+    font: 400 14px/31px "Microsoft YaHei";
+    color: #fff;
+    padding: 0 15px 0 10px;
+}
+
+.jd-nav .dropdown .dd a:hover{
+    color: #C81623;
+    background-color: white;
+}
+
+.jd-nav .dropdown .dd a.bottom:hover{
+    border-bottom: 1px solid #B1191A;
+}
+
+.jd-nav .dropdown .dd span{
+    float: right;
+    color: #fff;
+    font: 600 12px/31px "SimSun";
+}
+
+.jd-nav .navitems{
+    float: left;
+    width: 680px;
+    height: 44px;
+}
+
+.jd-nav .navitems li{
+    float: left;
+}
+
+.jd-nav .navitems li.new{
+    background: url("../images/ico_new.png") no-repeat right top;
+}
+
+.jd-nav .navitems li a{
+    display: block;
+    font: 15px/44px "Microsoft YaHei";
+    padding: 0 20px;
+    color: #333;
+}
+
+.jd-nav .navitems li a:hover{
+    color: #C81623;
+}
+
+
+/*底部开始*/
+.slogen{
+    height: 54px;
+    padding: 20px 0;
+    background: #F5F5F5;
+    position: relative;
+}
+
+.item{
+    width: 302px;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+}
+
+.slogen1{
+    margin-left: -608px;
+}
+
+.slogen2{
+    margin-left: -304px;
+}
+
+.slogen3{
+    margin-left: 2px;
+}
+
+.slogen4{
+    margin-left: 306px;
+}
+
+.help-mid{
+    padding: 20px 0;
+}
+
+.help dl{
+    float: left;
+    font-family: "Microsoft YaHei";
+    line-height: 22px;
+}
+
+.help dt{
+    font: bold 14px/22px "Microsoft YaHei";
+    padding-bottom: 5px;
+    width: 198px;
+}
+
+.help .help-cover{
+    width: 200px;
+    height: 150px;
+    background: url("../images/ico_footer.png") no-repeat top right;
+}
+
+.help .help-cover dt{
+    padding-bottom: 15px;
+    width: 200px;
+}
+
+.help .help-cover span s{
+    font: 400 12px "SimSun";
+    padding-left: 3px;
+}
+
+.copyright{
+    border-top: 1px solid #E5E5E5;
+    text-align: center;
+    font: 12px "Microsoft YaHei";
+    padding: 15px 0;
+}
+
+.copyright span{
+    margin: 0 10px;
+}
+
+.copyright-inner{
+    padding: 10px 0;
+    line-height: 20px;
+    color: #999;
+}
+
+.copyright-inner a{
+    color: #999;
+}
+
+.copyright-inner a:hover{
+    color: #C81623;
+}
+
+.copyright-auth{
+    padding:0 0 45px 275px;
+    text-align: center;
+}
+
+.copyright-auth a{
+    float: left;
+    display: block;
+    width: 103px;
+    height: 32px;
+    margin: 0 3px;
+}
+
+.copyright-auth .img1{
+    background: url("../images/ico_footer.png") no-repeat 0 -151px;
+}
+
+.copyright-auth .img2{
+    background: url("../images/ico_footer.png") no-repeat -104px -151px;
+}
+
+.copyright-auth .img3{
+    background: url("../images/ico_footer.png") no-repeat 0 -184px;
+}
+
+.copyright-auth .img4{
+    background: url("../images/ico_footer.png") no-repeat -104px -184px;
+}
+
+.copyright-auth .img5{
+    background: url("../images/ico_footer.png") no-repeat 0 -217px;
+}
+
+.copyright-auth .img6{
+    background: url("../images/ico_footer.png") no-repeat -104px -217px;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标滑过展示</title><style>
+    *{margin:0;padding:0;}
+    ul{list-style:none;}
+    #box {
+        height: 70px;
+        width: 360px;
+        padding-top: 360px;
+        border:1px solid #ccc;
+        margin:100px auto;
+        overflow: hidden;
+        background: url(../images/01big.jpg) no-repeat;
+    }
+    #box ul{
+        overflow: hidden;
+        border-top:1px solid #ccc;
+    }
+    #box li {
+        float: left;
+    }
+</style>
+    <script>
+        window.onload = function(){
+            /*  一共有五组   这些有哪些相同的部分：鼠标经过、背景更换图片
+               我们可以把这两个放到一个函数里面 重复使用*/
+
+            /*  传统方法：
+                事件源：li    事件：鼠标经过    事件处理程序：box 更换背景*/
+            /*var box = document.getElementById("box");
+
+            var li01 = document.getElementById("li01");
+            li01.onmouseover = function(){
+                box.style.backgroundImage = "url(images/01big.jpg)";
+            }
+            var li02 = document.getElementById("li02");
+            li02.onmouseover = function(){
+                box.style.backgroundImage = "url(images/02big.jpg)";
+            }
+            var li03 = document.getElementById("li03");
+            li03.onmouseover = function(){
+                box.style.backgroundImage = "url(images/03big.jpg)";
+            }
+            var li04 = document.getElementById("li04");
+            li04.onmouseover = function(){
+                box.style.backgroundImage = "url(images/04big.jpg)";
+            }
+            var li05 = document.getElementById("li05");
+            li05.onmouseover = function(){
+                box.style.backgroundImage = "url(images/05big.jpg)";
+            }*/
+
+            //封装函数，简化代码
+            var box = document.getElementById("box");
+            function fn(liid,bg){  // 封装函数  参数的传递
+                var obj = document.getElementById(liid);
+                obj.onmouseover = function(){
+                    box.style.backgroundImage = bg;
+                }
+            }
+            fn("li01","url(images/01big.jpg)"); // 实参  调用函数
+            fn("li02","url(images/02big.jpg)");
+            fn("li03","url(images/03big.jpg)");
+            fn("li04","url(images/04big.jpg)");
+            fn("li05","url(images/05big.jpg)");
+
+        }
+    </script>
+</head>
+<body>
+
+<div id="box">
+    <ul>
+        <li id="li01"><img src="../images/01.jpg" alt=""/></li>
+        <li id="li02"><img src="../images/02.jpg" alt=""/></li>
+        <li id="li03"><img src="../images/03.jpg" alt=""/></li>
+        <li id="li04"><img src="../images/04.jpg" alt=""/></li>
+        <li id="li05"><img src="../images/05.jpg" alt=""/></li>
+    </ul>
+</div>
+
+</body>
+</html>

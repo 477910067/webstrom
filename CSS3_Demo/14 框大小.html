@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin: 0 50px;
+        }
+
+        .div1 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+
+        .div2 {
+            width: 300px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid red;
+        }
+
+        .div1_1 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+
+        .div2_1 {
+            width: 300px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>原始宽高度效果 : </h1>
+<div class="div1">这个是个较小的框 (width 为 300px ，height 为 100px)。</div>
+<br>
+<div class="div2">这个是个较大的框 (width 为 300px ，height 为 100px)。</div>
+<br><br><br><br><br>
+
+<h1>盒子真实宽高度 : </h1>
+<p> 设置 box-sizing: border-box; 属性, 则 padding(内边距) 和 border(边框) 也包含在 width 和 height 中</p>
+<div class="div1_1">两个 div 现在是一样大小的!</div>
+<br>
+<div class="div2_1">菜鸟教程!</div>
+<br><br><br><br><br>
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

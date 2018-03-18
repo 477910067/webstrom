@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <style>
+        body{
+            background: url("../images/pf1.jpg") no-repeat top center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var sele = document.getElementById("sele");
+            sele.onchange = function () {
+                switch (this.value){
+                    case "1":
+                        document.body.style.backgroundImage = "url(\'images/pf1.jpg\')";
+                        break;
+                    case "2":
+                        document.body.style.backgroundImage = "url(\'images/pf2.jpg\')";
+                        break;
+                    case "3":
+                        document.body.style.backgroundImage = "url(\'images/pf3.jpg\')";
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<select name="" id="sele">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+</body>
+</html>

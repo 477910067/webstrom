@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin: 0 50px;
+        }
+
+        ul.pagination_1 {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.pagination_1 li {
+            display: inline;
+        }
+
+        ul.pagination_1 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        ul.pagination_2 li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        ul.pagination_2 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.pagination_3 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        ul.pagination_3 li a.active {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        ul.pagination_3 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.pagination_4 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+        ul.pagination_4 li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        ul.pagination_4 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.pagination_5 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin-right: -1px;
+        }
+
+        ul.pagination_5 li a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        ul.pagination_5 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.pagination_6 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        .pagination_6 li:first-child a {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        .pagination_6 li:last-child a {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        ul.pagination_6 li a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        ul.pagination_6 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.pagination_7 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        ul.pagination_7 li a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        ul.pagination_7 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.pagination_8 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            font-size: 22px;
+        }
+
+        ul.pagination_8 li a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        ul.pagination_8 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.pagination_9 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        ul.pagination_9 li a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        ul.pagination_9 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        div.center {
+            text-align: center;
+            border: 1px solid yellow;
+            padding: 10px 0;
+        }
+
+        ul.pagination_10 li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        ul.pagination_10 li a.active {
+            background-color: #eee;
+            color: black;
+            border: 1px solid #ddd;
+        }
+
+        ul.pagination_10 li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        ul.breadcrumb {
+            padding: 8px 16px;
+            list-style: none;
+            background-color: #eee;
+        }
+
+        ul.breadcrumb li {
+            display: inline;
+        }
+
+        ul.breadcrumb li + li:before {
+            padding: 8px;
+            color: black;
+            content: "/\00a0";
+        }
+
+        ul.breadcrumb li a {
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>简单的分页 : </h1>
+<ul class="pagination_1">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a class="active" href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">»</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>点击及鼠标悬停分页样式 : </h1>
+<p>移动鼠标的分页的数字上。</p>
+<ul class="pagination_1 pagination_2">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a class="active" href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">»</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>圆角样式 : </h1>
+<ul class="pagination_1 pagination_3">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a class="active" href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">»</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>鼠标悬停过渡效果 : </h1>
+<p>鼠标移动到分页码上。</p>
+<ul class="pagination_1 pagination_4">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a class="active" href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">»</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>带边框分页 : </h1>
+<ul class="pagination_1 pagination_5">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a class="active" href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">»</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>圆角边框 : </h1>
+<ul class="pagination_1 pagination_6">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a class="active" href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">»</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>分页间隔 : </h1>
+<ul class="pagination_1 pagination_7">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a class="active" href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">»</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>分页字体大小 : </h1>
+<p>我们可以使用 font-size 属性来设置分页的字体大小:</p>
+<ul class="pagination_1 pagination_8">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a class="active" href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li><a href="#">7</a></li>
+    <li><a href="#">»</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>分页居中 : </h1>
+<div class="center">
+    <ul class="pagination_1 pagination_9">
+        <li><a href="#">«</a></li>
+        <li><a href="#">1</a></li>
+        <li><a class="active" href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">»</a></li>
+    </ul>
+</div>
+<br><br><br><br><br>
+
+<h1>分页按钮 : </h1>
+<p>上一页，下一页按钮:</p>
+<ul class="pagination_1 pagination_10">
+    <li><a href="#">❮</a></li>
+    <li><a href="#">❯</a></li>
+</ul>
+<p>分页导航:</p>
+<ul class="pagination_1 pagination_10">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+    <li><a href="#">Link 3</a></li>
+</ul>
+<br><br><br><br><br>
+
+<h1>面包屑导航 : </h1>
+<ul class="breadcrumb">
+    <li><a href="#">首页 </a></li>
+    <li><a href="#">前端 </a></li>
+    <li><a href="#">HTML 教程 </a></li>
+    <li>HTML 段落</li>
+</ul>
+<br><br><br><br><br>
+
+
+<br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

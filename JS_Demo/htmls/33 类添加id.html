@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类添加id</title><style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        margin: 10px;
+    }
+</style>
+    <script>
+        window.onload = function () {
+
+            function getClass(classname,id) {
+                //如果浏览器支持
+                if (document.getElementsByClassName){
+                    if (id){  //有id的情况  先获取id  再根据id获取className
+                        var eleId = document.getElementById(id);
+                        return eleId.getElementsByClassName(classname);
+                    } else {  //没有 id  直接返回
+                        return document.getElementsByClassName(classname);
+                    }
+                }
+
+                //不支持的浏览器
+                if (id){
+                    var eleId = document.getElementById(id);
+                    var dom = document.getElementsByTagName("*");
+                } else {
+                    var dom = document.getElementsByTagName("*");
+                }
+                var arr = [];   //用于存放满足的数组
+                for (var i=0; i<dom.length; i++){  //遍历所有的盒子
+                    var txtArr = dom[i].className.split(" ");  //如果多个类名在一起  分割类名  并转换为数组
+                    for (var j=0; j<txtArr.length; j++){  //遍历通过类名分割的数组
+                        if (txtArr[j] == classname){
+                            arr.push(dom[i]);
+                        }
+                    }
+                }
+                return arr;
+            }
+            console.log(getClass("demo","one"));  // (3) [div.text.demo, div.two.text.demo, div.demo.two]
+        }
+    </script>
+</head>
+<body>
+<div class="text"></div>
+<div></div>
+<div class="demo text"></div>
+<div></div>
+<div id="one">
+    <div class="text demo"></div>
+    <div class="two text demo"></div>
+    <div></div>
+    <div class="demo two"></div>
+</div>
+<div></div>
+</body>
+</html>

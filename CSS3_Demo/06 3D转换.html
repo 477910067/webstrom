@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin-left: 50px;
+        }
+
+        div {
+            width: 100px;
+            height: 75px;
+            background-color: red;
+            border: 1px solid black;
+        }
+
+        #div1 {
+            -webkit-transform: rotateX(120deg); /* Safari and Chrome */
+            transform: rotateX(120deg);
+        }
+
+        #div2 {
+            -webkit-transform: rotateY(130deg); /* Safari and Chrome */
+            transform: rotateY(130deg);
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>围绕其在一个给定度数 X 轴旋转的元素 : </h1>
+<div>Hello. This is a DIV element.</div>
+<div id="div1">Hello. This is a DIV element.</div>
+<br><br><br>
+
+<h1>围绕其在一个给定度数 Y 轴旋转的元素 : </h1>
+<div>Hello. This is a DIV element.</div>
+<div id="div2">Hello. This is a DIV element.</div>
+
+
+<br><br><br><br><br>
+<p><b>注意:</b> Internet Explorer 9 (以及更早版本的浏览器) 和 Opera 不支持 rotateX 方法.</p>
+</body>
+</html>

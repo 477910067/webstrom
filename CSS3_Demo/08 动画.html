@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin-left: 50px;
+        }
+
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: myone 5s;
+            -webkit-animation: myone 5s; /* Safari and Chrome */
+        }
+
+        @keyframes myone {
+            from {
+                background: red;
+            }
+            to {
+                background: yellow;
+            }
+        }
+
+        /* Safari and Chrome */
+        @-webkit-keyframes myone {
+            from {
+                background: red;
+            }
+            to {
+                background: yellow;
+            }
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            -moz-animation: mytwo 5s; /* Firefox */
+            -webkit-animation: mytwo 5s; /* Safari and Chrome */
+            -o-animation: mytwo 5s; /* Opera */
+            animation: mytwo 5s;
+        }
+
+        @keyframes mytwo {
+            0% {
+                background: red;
+            }
+            25% {
+                background: yellow;
+            }
+            50% {
+                background: blue;
+            }
+            100% {
+                background: green;
+            }
+        }
+
+        /* Firefox */
+        @-moz-keyframes mytwo {
+            0% {
+                background: red;
+            }
+            25% {
+                background: yellow;
+            }
+            50% {
+                background: blue;
+            }
+            100% {
+                background: green;
+            }
+        }
+
+        /* Safari and Chrome */
+        @-webkit-keyframes mytwo {
+            0% {
+                background: red;
+            }
+            25% {
+                background: yellow;
+            }
+            50% {
+                background: blue;
+            }
+            100% {
+                background: green;
+            }
+        }
+
+        /* Opera */
+        @-o-keyframes mytwo {
+            0% {
+                background: red;
+            }
+            25% {
+                background: yellow;
+            }
+            50% {
+                background: blue;
+            }
+            100% {
+                background: green;
+            }
+        }
+
+        .div3 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            -webkit-animation: mythree 5s; /* Safari and Chrome */
+            animation: mythree 5s;
+        }
+
+        @keyframes mythree {
+            0% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+            25% {
+                background: yellow;
+                left: 100px;
+                top: 0;
+            }
+            50% {
+                background: blue;
+                left: 100px;
+                top: 100px;
+            }
+            75% {
+                background: green;
+                left: 0;
+                top: 100px;
+            }
+            100% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        /* Safari and Chrome */
+        @-webkit-keyframes mythree {
+            0% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+            25% {
+                background: yellow;
+                left: 100px;
+                top: 0;
+            }
+            50% {
+                background: blue;
+                left: 100px;
+                top: 100px;
+            }
+            75% {
+                background: green;
+                left: 0;
+                top: 100px;
+            }
+            100% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .div4 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            animation-name: myfour;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-play-state: running;
+            /* Safari and Chrome: */
+            -webkit-animation-name: myfour;
+            -webkit-animation-duration: 5s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-delay: 2s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-play-state: running;
+        }
+
+        @keyframes myfour {
+            0% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+            25% {
+                background: yellow;
+                left: 100px;
+                top: 0;
+            }
+            50% {
+                background: blue;
+                left: 100px;
+                top: 100px;
+            }
+            75% {
+                background: green;
+                left: 0;
+                top: 100px;
+            }
+            100% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        /* Safari and Chrome */
+        @-webkit-keyframes myfour {
+            0% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+            25% {
+                background: yellow;
+                left: 100px;
+                top: 0;
+            }
+            50% {
+                background: blue;
+                left: 100px;
+                top: 100px;
+            }
+            75% {
+                background: green;
+                left: 0;
+                top: 100px;
+            }
+            100% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>把 "myone" 动画捆绑到 div 元素，时长：5 秒 : </h1>
+<div class="div1"></div>
+<br><br><br>
+
+<h1>当动画为 25% 及 50% 时改变背景色，然后当动画 100% 完成时再次改变 : </h1>
+<div class="div2"></div>
+<p><b>注释：</b>当动画完成时，会变回初始的样式。</p>
+<br><br><br>
+
+<h1>改变背景色和位置 : </h1>
+<div class="div3"></div>
+<br><br><br><br><br>
+
+<h1>运行动画，设置所有属性 : </h1>
+<div class="div4"></div>
+<br><br><br><br><br>
+
+
+<br><br><br><br><br>
+<p><b>注意:</b> 该实例在 Internet Explorer 9 及更早 IE 版本是无效的。</p>
+</body>
+</html>

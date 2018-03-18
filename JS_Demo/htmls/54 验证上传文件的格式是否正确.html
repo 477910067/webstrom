@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证上传文件的格式是否正确</title>
+</head>
+<body>
+<input type="file" name="" id="File"/><span></span>  <!--文件域-->
+<script>
+    var file = document.getElementById("File");
+    file.onchange = function() {
+        //alert(11);
+        //alert(this.value); //  c:/adfasdf.ss.jpg   需要点  从后面开始 再字符串中的位置
+        var path = this.value;  // 得到的是现在的文件路径
+
+        var suxxif = path.substr(path.lastIndexOf(".")).toUpperCase()
+        //  得到的是后缀名  并且转换为大写(toUpperCase)
+
+        //alert(suxxif);
+        if(suxxif == ".JPG" || suxxif == ".PNG") {
+            this.nextSibling.innerHTML = "格式正确";
+        } else {
+            this.nextSibling.innerHTML = "格式错误的";
+        }
+    }
+
+</script>
+</body>
+</html>

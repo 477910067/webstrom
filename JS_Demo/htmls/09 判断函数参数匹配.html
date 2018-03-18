@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断函数参数匹配</title>
+</head>
+<body>
+<script>
+    function fn(a,b)
+    {
+        console.log(fn.length);  //得到的是形参的个数
+        console.log(arguments.length);  //得到的是实参的个数
+        if(fn.length == arguments.length)
+            console.log(a+b);
+        else
+            console.error("实参数与形参数目不匹配，正确的形参数为:" + fn.length);
+    }
+    //fn(1,2);
+    //fn(5);
+    fn(4,6,9);
+</script>
+</body>
+</html>

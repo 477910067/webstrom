@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度换肤效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("../images/pf1.jpg") top center;
+        }
+        .box{
+            height: 150px;
+            text-align: center;
+            background: rgba(255,255,255,.3);
+            padding-top: 50px;
+        }
+        .box img{
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        /*入口函数*/
+        window.onload = function () {
+            var pic1 = document.getElementById("pic1");
+            var pic2 = document.getElementById("pic2");
+            var pic3 = document.getElementById("pic3");
+            pic1.onclick = function (ev) {
+                document.body.style.backgroundImage = "url(\"images/pf1.jpg\")"
+            }
+            pic2.onclick = function (ev) {
+                document.body.style.backgroundImage = "url(\"images/pf2.jpg\")"
+            }
+            pic3.onclick = function (ev) {
+                document.body.style.backgroundImage = "url(\"images/pf3.jpg\")"
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <img id="pic1" src="../images/pf1.jpg" alt="" width="150px" />
+    <img id="pic2" src="../images/pf2.jpg" alt="" width="150px" />
+    <img id="pic3" src="../images/pf3.jpg" alt="" width="150px" />
+</div>
+</body>
+</html>

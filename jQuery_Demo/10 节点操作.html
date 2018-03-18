@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button:first").click(function () {
+                // append 追加节点 往后添加 父子关系
+                $("div").append("<p>我是append动态创建出来的p元素</p>");
+            });
+
+            $("button:eq(1)").click(function () {
+                // appendTo 追加节点 往后添加 父子关系
+                $("<p>我是appendTo创建出来的p元素</p>").appendTo($("div"));
+            });
+
+            $("button:eq(2)").click(function () {
+                // prepend 追加节点 往前添加 父子关系
+                $("div").prepend("<p>我是prepend动态创建出来的p元素</p>");
+            });
+
+            $("button:eq(3)").click(function () {
+                // prependTo 追加节点 往后添加 父子关系
+                $("<p>我是prependTo创建出来的p元素</p>").prependTo($("div"));
+            });
+
+            $("button:eq(4)").click(function () {
+                // after 往后添加节点 兄弟关系
+                $("div").after("<p>我是after动态创建出来的p元素</p>");
+            });
+
+            $("button:eq(5)").click(function () {
+                // before 往前添加节点 兄弟关系
+                $("div").before("<p>我是before动态创建出来的p元素</p>");
+            });
+
+            $("button:eq(6)").click(function () {
+                // insertBefore 往前添加节点 兄弟关系
+                $("<p>我是before动态创建出来的p元素</p>").insertBefore($("div"));
+            });
+
+            $("button:eq(7)").click(function () {
+                // insertAfter 往前添加节点 兄弟关系
+                $("<p>我是before动态创建出来的p元素</p>").insertAfter($("div"));
+            });
+
+            $("button:eq(8)").click(function () {
+                // remove 删除节点
+                $("div").remove();
+                // 可以自杀
+                //$(this).remove();
+            });
+
+            $("button:eq(9)").click(function () {
+                // empty 清空子元素
+                //$("div").empty();
+                $("div").html("");  // 这种方法更高效 推荐使用
+            });
+
+            $("button:eq(10)").click(function () {
+                // clone 复制节点  默认参数为false 若设为true 则连事件也一起拷贝
+                $("div").append($("p").clone());
+            });
+
+            $("button:eq(11)").click(function () {
+                //
+                $("span").wrap($(".demo"));
+            });
+
+        });
+    </script>
+</head>
+<body>
+<button>append 追加节点</button>
+<button>appendTo 追加节点</button>
+<button>prepend 在内部的前面添加节点</button>
+<button>prependTo 在内部的前面添加节点</button>
+<button>after 往后添加节点</button>
+<button>before 往前添加节点</button>
+<button>insertBefore</button>
+<button>insertAfter</button>
+<br>
+<button>remove 删除节点</button>
+<button>empty 制空节点</button>
+<button>clone 复制节点</button>
+<button>wrap 包裹节点</button>
+
+<div>
+    <h1>我是标题h1<span>我是span</span></h1>
+</div>
+<p>我是div外面的元素</p>
+<div class="demo"></div>
+<span>我是小span</span>
+</body>
+</html>

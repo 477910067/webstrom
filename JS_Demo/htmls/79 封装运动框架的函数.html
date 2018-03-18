@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画函数的封装</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            var btn200 = $("btn200");
+            var btn400 = $("btn400");
+            var box = $("box");
+            var timer = null;
+
+            // 封装匀速运动函数
+            /*function animate(obj,target) {   // 第一个参数 动谁   第二个参数 动多少
+                var speed = obj.offsetLeft < target ? 15 : -15;   // 用来判断 应该+值  还是-值
+                obj.timer = setInterval(function () {
+                    var result = target - obj.offsetLeft;
+                    obj.style.left = obj.offsetLeft + speed + "px";
+                    if (Math.abs(result) <= 15){   // Math.abs(result) 数学中的取绝对值函数
+                        clearInterval(obj.timer);
+                        obj.style.left = target + "px";
+                    }
+                },10)
+            }
+            btn200.onclick = function () {
+                animate(box, 200);
+            }
+            btn400.onclick = function () {
+                animate(box, 400);
+            }*/
+
+            // 返回当前样式的函数
+            function getStyle(obj, attr) {   // 第一个参数 谁的   第二个参数 哪个属性
+                if (obj.currentStyle) {   // 兼容 ie 678 浏览器
+                    // attr为字符串  相当于"width"    style.width 等价于 style["width"]
+                    return obj.currentStyle[attr];
+                } else {   // W3C 浏览器
+                    return window.getComputedStyle(obj, null)[attr];
+                }
+            }
+
+            // 封装单个属性的运动框架函数
+            /*function animate(obj,attr,target) {  // 给谁  什么属性  目标多少
+                clearInterval(timer);
+                obj.timer = setInterval(function () {
+                    // 计算步长 动画原理    盒子本身的样式 + 步长
+                    // 我们怎么知道当前的样式
+                    // 先得到 当前的样式 然后用target减去 再除以10  就可以了
+                    var current = parseInt(getStyle(obj,attr));   // 得到当前的样式 的数值
+                    var step = ( target - current ) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                    // 开始动画
+                    obj.style[attr] = current + step + "px";
+                    if (current == target){
+                        clearInterval(timer);
+                    }
+                },30)
+            }
+
+            btn200.onclick = function () {
+                animate(box, "left", 200);
+            }
+            btn400.onclick = function () {
+                animate(box, "top", 400);
+            }*/
+
+            // 封装多个属性的运动框架函数
+            function animate(obj, json) {   // 给谁 json
+                clearInterval(timer);
+                obj.timer = setInterval(function () {
+                    var flag = true;   // 用来判断是否停止定时器
+                    // 先 遍历json
+                    for (var k in json) {   // 这里的 k 是当前样式的属性
+                        // 目标位置就是 属性值
+                        var current = 0;   // 得到当前的样式 的数值
+                        if (k == "opacity") {
+                            current = parseInt(getStyle(obj, k) * 100);
+                        } else {
+                            current = parseInt(getStyle(obj, k));
+                        }
+                        // 用target位置 减去当前的位置 再除以10
+                        var step = (json[k] - current) / 10;    // 步长
+                        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                        // 判断透明度
+                        if (k == "opacity") {   // 判断用户有没有输入 opacity
+                            if ("opacity" in obj.style) {    // 判断我们浏览器是否支持 opacity
+                                obj.style[k] = (current + step) / 100;   // W3C 标准写法
+                            } else {
+                                obj.style.filter = "alpha(opacity = " + (current + step) + ")";   // IE 678 写法
+                            }
+                        } else if (k == "zIndex") {   // 添加 z-index
+                            obj.style.zIndex = json[k];
+                        } else {
+                            obj.style[k] = current + step + "px";
+                        }
+
+                        // 开始动画
+                        if (current != json[k]) {   // 只要json中有一个未停止 就不满足停止条件  这句一定在遍历里面
+                            flag = false;
+                        }
+                    }
+                    if (flag) {
+                        clearInterval(timer);
+                    }
+                }, 30)
+            }
+
+            btn200.onclick = function () {
+                animate(box, {left: 200, top: 200, opacity: 40, zIndex:3});
+            }
+            btn400.onclick = function () {
+                animate(box, {top: 400});
+            }
+
+        }
+    </script>
+</head>
+<body>
+<button id="btn200">200</button>
+<button id="btn400">400</button>
+<div id="box"></div>
+</body>
+</html>

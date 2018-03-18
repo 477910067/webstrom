@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin-left: 50px;
+        }
+
+        .demo {
+            width: 200px;
+            height: 100px;
+            margin: 20px;
+            background-color: yellow;
+            /* Rotate div */
+            -ms-transform: rotate(30deg); /* IE 9 */
+            -webkit-transform: rotate(30deg); /* Safari and Chrome */
+            transform: rotate(30deg); /*旋转30度*/
+        }
+
+        .xy {
+            width: 100px;
+            height: 75px;
+            background-color: red;
+            border: 1px solid black;
+        }
+
+        #div1 {
+            -ms-transform: translate(30px, 60px); /* IE 9 */
+            -webkit-transform: translate(30px, 60px); /* Safari and Chrome */
+            transform: translate(30px, 60px);
+        }
+
+        .zy {
+            width: 100px;
+            height: 75px;
+            background-color: blue;
+            border: 1px solid black;
+        }
+
+        #div2 {
+            -ms-transform: rotate(30deg); /* IE 9 */
+            -webkit-transform: rotate(30deg); /* Safari and Chrome */
+            transform: rotate(30deg);
+        }
+
+        #div3 {
+            margin: 150px;
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid black;
+            -ms-transform: scale(2, 3); /* IE 9 */
+            -webkit-transform: scale(2, 3); /* Safari */
+            transform: scale(2, 3);
+        }
+
+        #div4 {
+            -ms-transform: skew(30deg, 20deg); /* IE 9 */
+            -webkit-transform: skew(30deg, 20deg); /* Safari and Chrome */
+            transform: skew(30deg, 20deg);
+        }
+
+        #div5 {
+            -ms-transform: matrix(0.866, 0.5, -0.5, 0.866, 0, 0); /* IE 9 */
+            -webkit-transform: matrix(0.866, 0.5, -0.5, 0.866, 0, 0); /* Safari and Chrome */
+            /* matrix 方法有六个参数，包含旋转，缩放，移动（平移）和倾斜功能 */
+            transform: matrix(0.866, 0.5, -0.5, 0.866, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+<h1>普通旋转角度 : </h1>
+<div class="demo">Hello</div>
+<br><br><br>
+
+<h1>根据左(X轴)和顶部(Y轴)位置给定的参数,从当前元素位置移动 : </h1>
+<div class="xy">Hello. This is a DIV element.</div>
+<div class="xy" id="div1">Hello. This is a DIV element.</div>
+<br><br><br>
+
+<h1>在一个给定度数顺时针旋转的元素 : </h1>
+<div class="zy">你好。这是一个 DIV 元素。</div>
+<div class="zy" id="div2">你好。这是一个 DIV 元素。</div>
+<br><br><br>
+
+<h1>scale() 方法用于增加或缩小元素的大小 : </h1>
+<div id="div3">
+    div 元素的宽度是原始大小的两倍，高度是原始大小的三倍。
+</div>
+<br><br><br>
+
+<h1>表示X轴和Y轴倾斜的角度 : </h1>
+<div class="xy">Hello. This is a DIV element.</div>
+<div class="xy" id="div4">Hello. This is a DIV element.</div>
+<br><br><br>
+
+<h1>利用matrix()方法旋转 : </h1>
+<div class="xy">Hello. This is a DIV element.</div>
+<div class="xy" id="div5">Hello. This is a DIV element.</div>
+
+
+</body>
+</html>

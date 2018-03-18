@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h2>input 元素使用 datalist 预定义值:</h2>
+<form action="demo-form.php" method="get">
+    <input list="browsers" name="browser">
+
+    <!--当用户在自动完成域中开始输入时，浏览器应该在该域中显示填写的选项-->
+    <datalist id="browsers">
+        <option value="Internet Explorer">
+        <option value="Firefox">
+        <option value="Chrome">
+        <option value="Opera">
+        <option value="Safari">
+    </datalist>
+
+    <input type="submit">
+</form>
+<br><br>
+
+<h2>带有keygen字段的表单:</h2>
+<form action="demo_keygen.asp" method="get">
+    用户名: <input type="text" name="usr_name"/>
+    <!--作用:提供一种验证用户的可靠方法-->
+    加密: <keygen name="security"></keygen>
+    <input type="submit"/>
+</form>
+<br><br>
+
+<h2>output 元素用于不同类型的输出:</h2>
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+    <input type="range" id="a" value="50">100 +
+    <input type="number" id="b" value="50">=
+    <output name="x" for="a b"></output>
+</form>
+<br><br>
+
+
+
+
+<br><br><br><br><br><br>
+<p><strong>注意:</strong> Internet Explorer 9（更早 IE 版本），Safari 不支持。</p>
+
+</body>
+</html>

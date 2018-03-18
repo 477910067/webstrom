@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>短信验证倒计时</title>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            var count = 3;   //倒计时的数据
+            var timer = null;  //定义定时器的名字
+            btn.onclick = function () {
+                //clearInterval(timer);  //可以先清除定时器 以防按钮可以重新点击时叠加开了定时器
+                this.disabled = true;   //使按钮 不可用
+                var that = this;
+                timer = setInterval(sendTextMassage,1000);   //开启定时器
+                function sendTextMassage(){
+                    count--;
+                    if (count >= 0){
+                        that.innerHTML = "还有" + count + "秒";
+                    } else {
+                        that.innerHTML = "重新发送短信";
+                        that.disabled = false;
+                        clearInterval(timer);  //清除定时器
+                        count = 3;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text"/>
+<button id="btn">点击发送短信</button>
+</body>
+</html>

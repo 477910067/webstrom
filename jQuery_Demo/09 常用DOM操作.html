@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p{
+            background-color: pink;
+            height: 100px;
+        }
+    </style>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // 设置属性
+            // $("input[type = button]")
+            $("input:eq(0)").click(function () {
+                $(this).attr("title", "我是动态设置的属性");
+            });
+
+            // 获取属性
+            $("input:eq(1)").click(function () {
+                var attr = $("input:eq(0)").attr("title");
+                console.log(attr);
+            });
+
+            // 移除属性
+            $("input:eq(2)").click(function () {
+                $("input:eq(0)").removeAttr("title");
+            });
+
+            // 设置值
+            // val 一个参数的时候为设置值
+            $("input:eq(3)").click(function () {
+                $("#txt").val("我是动态设置的值");
+            });
+
+            // 获取值
+            // val 没有参数的时候为获取值
+            $("input:eq(4)").click(function () {
+                console.log($("#txt").val());
+            });
+
+            // 设置html
+            $("input:eq(5)").click(function () {
+                // $("div").html("我是html的内容");
+                $("div").html("<p>我是p标签</p>");
+            });
+
+            // 获取html
+            $("input:eq(6)").click(function () {
+                alert($("div").html());
+            });
+
+            // 设置text
+            $("input:eq(7)").click(function () {
+                $("div").text("我是动态创建的文本内容");
+            });
+
+            // 获取text
+            $("input:eq(8)").click(function () {
+                alert($("div").text());
+            });
+
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="设置属性"/>
+<input type="button" value="获取属性"/>
+<input type="button" value="移除属性"/>
+<input type="button" value="设置值"/>
+<input type="button" value="获取值"/>
+<input type="button" value="设置html内容"/>
+<input type="button" value="获取html内容"/>
+<input type="button" value="设置text内容"/>
+<input type="button" value="获取text内容"/>
+<div>
+    <input type="text" id="txt"/>
+</div>
+</body>
+</html>

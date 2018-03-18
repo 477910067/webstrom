@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin-left: 50px;
+        }
+
+        .simple {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: width 2s;
+            -webkit-transition: width 2s; /* Safari */
+        }
+
+        .simple:hover {
+            width: 300px;
+        }
+
+        .complex {
+            width: 100px;
+            height: 100px;
+            background: red;
+            -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* For Safari 3.1 to 6.0 */
+            transition: width 2s, height 2s, transform 2s;
+        }
+
+        .complex:hover {
+            width: 200px;
+            height: 200px;
+            -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+            transform: rotate(180deg);
+        }
+
+        .out-time {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            transition-delay: 2s;
+            /* Safari */
+            -webkit-transition-property: width;
+            -webkit-transition-duration: 1s;
+            -webkit-transition-timing-function: linear;
+            -webkit-transition-delay: 2s;
+        }
+
+        .out-time:hover {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>过渡效果 : </h1>
+<div class="simple"></div>
+<p>鼠标移动到 div 元素上，查看过渡效果。</p>
+<br><br><br>
+
+<h1>多重效果过渡 : </h1>
+<div class="complex">鼠标移动到 div 元素上，查看过渡效果。</div>
+<br><br><br>
+
+<h1>延时过渡 : </h1>
+<div class="out-time"></div>
+<p>鼠标移动到 div 元素上，查看过渡效果。</p>
+<p><b>注意：</b> 过渡效果需要等待两秒后才开始。</p>
+
+
+</body>
+</html>

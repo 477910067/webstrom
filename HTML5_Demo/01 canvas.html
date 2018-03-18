@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--============兼容 IE 678 的 html5 写法   html5shiv包==========-->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <style>
+        /*==============初始化html5新标签的CSS==============*/
+        article, aside, dialog, footer, header, section, nav, figure, menu {
+            display: block
+        }
+    </style>
+
+</head>
+<body>
+
+<p>Image to use:</p>
+<img id="scream" src="img_the_scream.jpg" alt="The Scream" width="220" height="277">
+
+<p>Canvas:</p>
+<canvas id="myCanvas" width="250" height="300" style="border:1px solid #d3d3d3;">
+    您的浏览器不支持 HTML5 canvas 标签。
+</canvas>
+
+<script>
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    /*
+    // fillRect(x,y,width,height) 方法定义了矩形当前的填充方式
+    ctx.fillStyle="#FF0000";
+    ctx.fillRect(0,0,150,75);
+    */
+
+    /*
+    // 绘制线条
+    ctx.moveTo(0,0);
+    ctx.lineTo(200,100);
+    ctx.stroke();
+    */
+
+    /*
+    // arc(x,y,r,start,stop) - 绘制一个圆
+    ctx.beginPath();
+    ctx.arc(95,50,40,0,2*Math.PI);
+    ctx.stroke();
+    */
+
+    /*
+    // fillText(text,x,y) - 在 canvas 上绘制实心的文本
+    // strokeText(text,x,y) - 在 canvas 上绘制空心的文本
+    ctx.font="30px Arial";
+    //ctx.fillText("实心 Hello World",10,50);
+    ctx.strokeText("空心 Hello World",10,50);
+    */
+
+    /*
+    // createLinearGradient(x,y,x1,y1) - 创建线条渐变
+    // createRadialGradient(x,y,r,x1,y1,r1) - 创建一个径向/圆渐变
+    // 创建渐变
+    //var grd=ctx.createLinearGradient(0,0,200,0);    // 线性渐变
+    var grd=ctx.createRadialGradient(75,50,5,90,60,100);    // 径向/圆渐变
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+    // 填充渐变
+    ctx.fillStyle=grd;
+    ctx.fillRect(10,10,150,80);
+    */
+
+    // drawImage(image,x,y) - 把一幅图像放置到画布上
+    var img = document.getElementById("scream");
+    img.onload = function () {
+        ctx.drawImage(img, 10, 10);
+    }
+
+
+</script>
+
+</body>
+</html>

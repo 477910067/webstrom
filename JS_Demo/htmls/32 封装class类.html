@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装class类</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+           /*
+            在IE9以上版本的浏览器可以执行
+            var dom = document.getElementsByClassName("demo");
+            alert(dom.length);
+           */
+            function getClass(classname) {
+                //如果浏览器支持  则直接返回
+                if (document.getElementsByClassName){
+                    return document.getElementsByClassName(classname);
+                }
+
+                //不支持的浏览器
+                var arr = [];   //用于存放满足的数组
+                var dom = document.getElementsByTagName("*");
+                for (var i=0; i<dom.length; i++){  //遍历所有的盒子
+                    var txtArr = dom[i].className.split(" ");  //如果多个类名在一起  分割类名  并转换为数组
+                    for (var j=0; j<txtArr.length; j++){  //遍历通过类名分割的数组
+                        if (txtArr[j] == classname){
+                            arr.push(dom[i]);
+                        }
+                    }
+
+                }
+                return arr;
+            }
+            alert(getClass("demo").length);
+        }
+    </script>
+</head>
+<body>
+<div class="text"></div>
+<div></div>
+<div class="demo text"></div>
+<div></div>
+<div class="text demo"></div>
+<div class="two text demo"></div>
+<div></div>
+<div class="demo two"></div>
+<div></div>
+</body>
+</html>

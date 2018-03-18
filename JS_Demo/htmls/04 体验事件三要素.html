@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #demo{
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>事件三要素</title>
+</head>
+<body>
+<div id="demo"></div>
+<button id="btn">改变宽度</button>
+
+<script>
+    /*要操作先找人*/
+    var demo = document.getElementById("demo");   //获得id为demo的div盒子并赋值给demo
+    var btn = document.getElementById("btn");  //获得按钮
+    /*事件三要素*/
+    /*事件源.事件 = function(){}*/
+    btn.onclick = function (ev) {
+        demo.style.width = "400px";
+    }
+</script>
+</body>
+</html>

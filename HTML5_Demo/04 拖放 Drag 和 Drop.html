@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1, #div2 {
+            width: 350px;
+            height: 70px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();  // 避免浏览器对数据的默认处理(以链接形式打开)
+        }
+
+        // 规定了被拖动的数据
+        function drag(ev) {
+            // 设置被拖数据的数据类型和值
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+<body>
+
+<p>拖动 RUNOOB.COM 图片到矩形框中:</p>
+
+<!-- ondrop="" 进行放置 -->
+<!-- ondragover="" 放到这 -->
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    <!-- draggable="true"  设置元素为可拖放 -->
+    <!-- ondragstart=""  放到何处 -->
+    <img id="drag1" src="logo.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+</div>
+<br>
+
+<!-- 可来回拖动 -->
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
+</html>

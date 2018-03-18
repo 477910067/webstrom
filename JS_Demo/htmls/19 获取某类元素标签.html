@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取某类元素</title>
+    <script>
+        window.onload = function () {
+            var lis = document.getElementsByTagName("li");
+            for (var i=0; i<lis.length; i++){
+                lis[i].innerHTML = "abc";
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+</div>
+</body>
+</html>

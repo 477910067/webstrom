@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习css后作业1</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .top{
+            width: 970px;
+            height:103px;
+            margin:0 auto;
+            margin-bottom: 10px;
+        }
+        .top .top_left{
+            float: left;
+            width: 277px;
+            height: 103px;
+            background-color: red;
+            /*设置透明度*/
+            opacity: 0.6;
+        }
+        .top .top_right{
+            float: right;
+            width: 679px;
+            height: 103px;
+        }
+        .top .top_right .language{
+            float: right;
+            width: 137px;
+            height: 49px;
+            margin-bottom: 8px;
+            background-color: lawngreen;
+        }
+        .top .top_right .hang{
+            float: right;
+            width:679px;
+            height: 46px;
+            background-color: lawngreen;
+        }
+        .center{
+            margin: 0 auto;
+            width: 970px;
+            height:435px;
+        }
+        .center .center_left{
+            float: left;
+            width: 310px;
+            height:435px;
+            margin-right: 10px;
+            background-color: orange;
+        }
+        .center .center_right{
+            float: left;
+            width: 650px;
+            height:435px;
+        }
+        .center .center_right .news{
+            width: 650px;
+            height:400px;
+        }
+        .center .center_right .news .news_left{
+            float: left;
+            width:450px;
+            height:400px;
+            margin-right: 10px;
+        }
+        .center .center_right .news .news_left .new1{
+            width: 450px;
+            height:240px;
+            background-color: aqua;
+            margin-bottom: 10px;
+         }
+        .center .center_right .news .news_left .new2{
+            width: 450px;
+            height:110px;
+            background-color: aqua;
+            margin-bottom: 10px;
+        }
+        .center .center_right .news .news_left .new3{
+            width: 450px;
+            height:30px;
+            background-color: aqua;
+        }
+        .center .center_right .news .news_right{
+            float: left;
+            width: 190px;
+            height:400px;
+            background-color: purple;
+        }
+        .center .center_right .link{
+            width: 650px;
+            height: 25px;
+            background-color: green;
+            margin-top: 10px;
+        }
+        .bottom{
+            margin: 0 auto;
+            width: 970px;
+            height: 35px;
+            background-color: blue;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <div class="top">
+        <div class="top_left"></div>
+        <div class="top_right">
+            <div class="language"></div>
+            <div class="hang"></div>
+        </div>
+    </div>
+    <!--主要部分-->
+    <div class="center">
+        <div class="center_left"></div>
+        <div class="center_right">
+            <div class="news">
+                <div class="news_left">
+                    <div class="new1"></div>
+                    <div class="new2"></div>
+                    <div class="new3"></div>
+                </div>
+                <div class="news_right"></div>
+            </div>
+            <div class="link"></div>
+        </div>
+    </div>
+    <!--底部-->
+    <div class="bottom"></div>
+</body>
+</html>

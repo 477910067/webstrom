@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>++前置和后置</title>
+</head>
+<body>
+<script>
+    /*
+    *  a++  ++后置  先运算再自加
+    *  ++a  ++前置  先自加再运算
+    */
+    var a = 10, b = 20, c = 30, e;
+    a++;
+    ++a;
+    e = ++a + (++b) + (c++) + a++;
+    alert(e);  //运算结果为77
+</script>
+</body>
+</html>

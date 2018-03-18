@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓动</title>
+    <style>
+        .box {
+            position: absolute;
+            top:100px;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+<!--=====缓动原理=====
+    num+=5;
+    box.style.left = num + "px";
+
+   leader = leader  + (target - leader ) / 10    公式
+
+   leader 初始 0
+   target 结束位置  100
+   leader = 10;   步长  10
+
+            19          19
+-->
+
+<button id="btn">开始</button>
+<div class="box" id="bOX"></div>
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("bOX");
+    var timer = null;
+    var leader = 0;
+    var target = 500;
+    btn.onclick = function() {
+        timer = setInterval(function(){
+            //leader = leader + (target - leader )/10;    //公式
+            // 盒子本身的位置 + 步长(不断变化的)
+            var step = (target - box.offsetLeft)/10;
+            console.log(step);
+            // 步长取整  ceil为向上取整  floor为向下取整    还有round为四舍五入
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            box.style.left = box.offsetLeft + step + "px";
+            if (box.offsetLeft == target){
+                clearInterval(timer);
+                alert("到目标了");
+            }
+        },30)
+    }
+</script>

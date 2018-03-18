@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+
+<h1>事件监听可以使用 v-on 指令 : </h1>
+<div id="app">
+    <button v-on:click="counter += 1">增加 1</button>
+    <p>这个按钮被点击了 {{ counter }} 次。</p>
+</div>
+<br><br><br>
+
+<h1>v-on 可以接收一个定义的方法来调用 : </h1>
+<div id="app2">
+    <!-- `greet` 是在下面定义的方法名 -->
+    <button v-on:click="greet">Greet</button>
+</div>
+<br><br><br>
+
+<h1>除了直接绑定到一个方法，也可以用内联 JavaScript 语句 : </h1>
+<div id="app3">
+    <button v-on:click="say('hi')">Say hi</button>
+    <button v-on:click="say('what')">Say what</button>
+</div>
+<br><br><br>
+
+<!--
+    <h1>事件修饰符 : </h1>
+
+    <p>阻止单击事件冒泡</p>
+    <a v-on:click.stop="doThis"></a>
+
+    <p>提交事件不再重载页面</p>
+    <form v-on:submit.prevent="onSubmit"></form>
+
+    <p>修饰符可以串联</p>
+    <a v-on:click.stop.prevent="doThat"></a>
+
+    <p>只有修饰符</p>
+    <form v-on:submit.prevent></form>
+
+    <p>添加事件侦听器时使用事件捕获模式</p>
+    <div v-on:click.capture="doThis">...</div>
+
+    <p>只当事件在该元素本身（而不是子元素）触发时触发回调</p>
+    <div v-on:click.self="doThat">...</div>
+
+    <p>click 事件只能点击一次，2.1.4版本新增</p>
+    <a v-on:click.once="doThis"></a>
+-->
+
+<!--
+    <h1>按键修饰符 : </h1>
+
+    <p>只有在 keyCode 是 13 时调用 vm.submit()</p>
+    <input v-on:keyup.13="submit">
+
+    <p>同上</p>
+    <input v-on:keyup.enter="submit">
+
+    <p>缩写语法</p>
+    <input @keyup.enter="submit">
+-->
+
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        }
+    });
+
+    var app = new Vue({
+        el: '#app2',
+        data: {
+            name: 'Vue.js'
+        },
+        // 在 `methods` 对象中定义方法
+        methods: {
+            greet: function (event) {
+                // `this` 在方法里指当前 Vue 实例
+                alert('Hello ' + this.name + '!');
+                // `event` 是原生 DOM 事件
+                if (event) {
+                    alert(event.target.tagName)
+                }
+            }
+        }
+    });
+    // 也可以用 JavaScript 直接调用方法
+    app.greet(); // -> 'Hello Vue.js!'
+
+    new Vue({
+        el: '#app3',
+        methods: {
+            say: function (message) {
+                alert(message)
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

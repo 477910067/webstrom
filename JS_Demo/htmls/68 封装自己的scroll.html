@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装自己的scroll</title>
+    <style>
+        body{
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function scroll() {
+        if (window.pageYOffset != null) {   // ie9+ 和其他浏览器
+            return {   // 由 json{left:10,right:10} 变异 而来
+                left : window.pageXOffset,
+                top : window.pageYOffset
+            }
+        } else if (document.compatMode == "CSS1Compat") {    // 已声明<!DOCTYPE html>的
+            // 检测是不是怪异模式的浏览器  即是否 声明<!DOCTYPE html>
+            return {
+                left : document.documentElement.scrollLeft,
+                top : document.documentElement.scrollTop
+            }
+        }
+        return {    // 剩下的肯定是怪异模式的  即 未声明<!DOCTYPE html>
+            left : document.body.scrollLeft,
+            top : document.body.scrollTop
+        }
+    }
+
+    window.onscroll = function () {    // onscroll 滚动函数
+        console.log(scroll().top);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点的操作</title>
+    <script>
+        window.onload = function () {
+            function $(id) {
+                return document.getElementById(id);
+            }
+            var childrens = $("demo").children;
+            //创建节点 createElement
+            var aa = document.createElement("div");
+            var bb = document.createElement("div");
+            var cc = document.createElement("div");
+            //添加节点  放到盒子的最后面  appendChild(创建完的节点)
+            $("demo").appendChild(aa);
+            //添加节点到盒子的指定位置  insertBefore(插入的节点,参照节点)
+            //若参照节点为null  则默认放到最后面
+            $("demo").insertBefore(bb,$("two"));
+            $("demo").insertBefore(cc,childrens[0]);
+
+            //移除节点  removeChild()
+            $("demo").removeChild($("three"));
+
+            /*
+                克隆节点  cloneNode()  可以带参数
+                true  深层复制  父和子一块复制
+                false  浅层复制  只复制父
+            */
+            $("demo").appendChild(childrens[1].cloneNode());  //浅层复制
+
+            $("demo").parentElement.appendChild($("demo").cloneNode(true));  //深层复制
+
+        }
+    </script>
+</head>
+<body>
+<div id="demo">
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+</div>
+</body>
+</html>
